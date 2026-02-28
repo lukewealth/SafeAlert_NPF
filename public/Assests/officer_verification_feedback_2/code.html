@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Officer Verification &amp; Feedback</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script>
+    tailwind.config = {
+        darkMode: "class",
+        theme: {
+            extend: {
+                colors: {
+                    primary: {
+                        blue: "#000080",
+                        green: "#008000",
+                        yellow: "#FFFF00",
+                    },
+                    "background-light": "#f5f5f8",
+                    "background-dark": "#0f0f23",
+                },
+                fontFamily: {
+                    display: ["Public Sans"],
+                },
+                borderRadius: {
+                    DEFAULT: "0.25rem",
+                    lg: "0.5rem",
+                    xl: "0.75rem",
+                    full: "9999px",
+                },
+            },
+        },
+    };
+    </script>
+<style>
+    body {
+        min-height: max(884px, 100dvh);
+    }
+    .star-rating>input {
+        display: none;
+    }
+    .star-rating>label {
+        color: #ccc;
+        cursor: pointer;
+        font-size: 2.5rem;
+        transition: color 0.2s, transform 0.2s;
+    }
+    .star-rating>input:checked~label,
+    .star-rating>label:hover,
+    .star-rating>label:hover~label {
+        color: #FFFF00;
+    }
+    .star-rating > input:checked + label {
+        transform: scale(1.1);
+    }
+    .confetti {
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        background-color: #f00;
+        animation: confetti-fall 2s ease-out forwards;
+    }
+    @keyframes confetti-fall {
+        0% {
+            transform: translateY(-100vh) rotate(0deg);
+            opacity: 1;
+        }
+        100% {
+            transform: translateY(100vh) rotate(720deg);
+            opacity: 0;
+        }
+    }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display">
+<div class="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden" id="main-content">
+<div class="flex items-center p-4 pb-2 justify-between bg-background-light dark:bg-background-dark">
+<div class="text-[#0c0c1d] dark:text-white flex size-12 shrink-0 items-center justify-center">
+<span class="material-symbols-outlined">arrow_back_ios_new</span>
+</div>
+<h2 class="text-[#0c0c1d] dark:text-white text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center">
+                Officer Verification
+            </h2>
+<div class="size-12 shrink-0"></div>
+</div>
+<div class="p-4 bg-background-light dark:bg-background-dark">
+<div class="bg-white dark:bg-[#1a1a2e] rounded-xl p-4 @container shadow-md">
+<div class="flex w-full flex-col gap-4">
+<div class="flex gap-4 items-center">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full min-h-24 w-24" data-alt="Officer Photo" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAOOdvU8lf6ukXV7lIJLJ3mNwwHkjY34RSVIuRVqZAoM9Nl9KKqdVXOT6kFCBY8F7LZ4dQvIvmzkedBKqaplWi4DWaxdQlpbHatuDDgJkhykFiPG644f-R-WvYpTBK6r_aGMO2gie0KubpbUdmUYhSJeypADmstlTJjUY_dSWA1eQ6LEs-n3rJXPaIG97I4XcveCIxpHZ4AgOwatgDZIY0Tj_QIBVO3pcbmqaAtQRBLteTtHsi92MK851PVsny6qPekFGPiisx0fcsQ");'></div>
+<div class="flex flex-col gap-1">
+<p class="text-black dark:text-white text-xl font-bold leading-tight tracking-[-0.015em]">
+                                Sgt. Adekunle Ciroma
+                            </p>
+<p class="text-black dark:text-gray-400 text-sm font-normal leading-normal">
+                                Badge No: NPF78910
+                            </p>
+<p class="text-black dark:text-gray-400 text-sm font-normal leading-normal">
+                                Division: Ikeja Command
+                            </p>
+</div>
+</div>
+<button class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-6 bg-primary-blue text-white text-base font-bold leading-normal tracking-[0.015em] w-full gap-2 transition-all duration-300" id="scan-qr-btn">
+<span class="material-symbols-outlined">qr_code_scanner</span>
+<span class="truncate">Scan QR to Verify</span>
+</button>
+<div class="hidden items-center justify-center gap-2 text-primary-green font-bold text-lg" id="verification-status">
+<span class="material-symbols-outlined">verified</span>
+<span>Verified Officer ✅</span>
+</div>
+<div class="hidden items-center justify-center gap-2 text-red-500 font-bold text-base" id="scan-error">
+<span class="material-symbols-outlined">error</span>
+<span>QR Scan Failed. Please try again.</span>
+</div>
+</div>
+</div>
+</div>
+<div class="px-4 pt-2 bg-background-light dark:bg-background-dark">
+<h3 class="text-[#0c0c1d] dark:text-white text-lg font-bold leading-tight tracking-[-0.015em] pb-2">
+                Rate your Interaction
+            </h3>
+<div class="bg-white dark:bg-[#1a1a2e] rounded-xl p-4 shadow-md">
+<div class="flex justify-center star-rating flex-row-reverse">
+<input id="star5" name="rating" type="radio" value="5"/><label class="material-symbols-outlined" for="star5">star</label>
+<input id="star4" name="rating" type="radio" value="4"/><label class="material-symbols-outlined" for="star4">star</label>
+<input id="star3" name="rating" type="radio" value="3"/><label class="material-symbols-outlined" for="star3">star</label>
+<input id="star2" name="rating" type="radio" value="2"/><label class="material-symbols-outlined" for="star2">star</label>
+<input id="star1" name="rating" type="radio" value="1"/><label class="material-symbols-outlined" for="star1">star</label>
+</div>
+<textarea class="mt-4 w-full rounded-lg border border-[#CCCCCC] dark:border-gray-600 bg-white dark:bg-[#1a1a2e] p-4 text-black dark:text-white placeholder:text-gray-400 focus:ring-primary-blue focus:border-primary-blue" placeholder="Share your experience (Optional)" rows="4"></textarea>
+<button class="mt-4 flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-6 bg-primary-green text-white text-base font-bold leading-normal tracking-[0.015em] w-full gap-2" id="submit-feedback-btn">
+<span class="truncate">Submit Feedback</span>
+</button>
+<div class="hidden items-center justify-center gap-2 text-red-500 font-bold text-base mt-2" id="feedback-error">
+<span class="material-symbols-outlined">error</span>
+<span>Submission failed. Check connection.</span>
+</div>
+</div>
+</div>
+</div>
+<div class="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center hidden z-50" id="thank-you-popup">
+<div class="relative bg-white dark:bg-[#1a1a2e] p-8 rounded-xl shadow-lg text-center w-11/12 max-w-sm overflow-hidden">
+<div class="absolute inset-0" id="confetti-container"></div>
+<span class="text-5xl">🎉</span>
+<p class="text-2xl font-bold text-black dark:text-white mt-4">Thank You!</p>
+<p class="text-gray-600 dark:text-gray-300 mt-2">Your feedback is valuable and helps us improve our service.</p>
+<button class="mt-6 w-full bg-primary-blue text-white py-2 rounded-lg font-bold" id="close-popup-btn">Done</button>
+</div>
+</div>
+<script>
+    // Mock functionality for demonstration
+    const scanBtn = document.getElementById('scan-qr-btn');
+    const verificationStatus = document.getElementById('verification-status');
+    const scanError = document.getElementById('scan-error');
+    scanBtn.addEventListener('click', () => {
+        // Simulate a scan process
+        scanBtn.disabled = true;
+        scanBtn.querySelector('span.truncate').textContent = 'Scanning...';
+        setTimeout(() => {
+            // Simulate a successful scan
+            const isSuccess = Math.random() > 0.2; // 80% success rate
+            if (isSuccess) {
+                scanBtn.classList.add('hidden');
+                verificationStatus.classList.remove('hidden');
+                verificationStatus.classList.add('flex');
+            } else {
+                 scanError.classList.remove('hidden');
+                 scanError.classList.add('flex');
+                 scanBtn.disabled = false;
+                 scanBtn.querySelector('span.truncate').textContent = 'Scan QR to Verify';
+                 setTimeout(() => {
+                    scanError.classList.add('hidden');
+                 }, 3000);
+            }
+        }, 1500);
+    });
+    const submitBtn = document.getElementById('submit-feedback-btn');
+    const thankYouPopup = document.getElementById('thank-you-popup');
+    const feedbackError = document.getElementById('feedback-error');
+    const closePopupBtn = document.getElementById('close-popup-btn');
+    const confettiContainer = document.getElementById('confetti-container');
+    submitBtn.addEventListener('click', () => {
+        // Simulate submission
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Submitting...';
+        setTimeout(() => {
+            const isSuccess = Math.random() > 0.2; // 80% success rate
+             if (isSuccess) {
+                thankYouPopup.classList.remove('hidden');
+                // Trigger haptic feedback
+                if (window.navigator.vibrate) {
+                    window.navigator.vibrate(200);
+                }
+                // Create confetti
+                for (let i = 0; i < 50; i++) {
+                    const confetti = document.createElement('div');
+                    confetti.classList.add('confetti');
+                    confetti.style.left = `${Math.random() * 100}%`;
+                    confetti.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
+                    confetti.style.animationDelay = `${Math.random() * 2}s`;
+                    confettiContainer.appendChild(confetti);
+                }
+             } else {
+                feedbackError.classList.remove('hidden');
+                feedbackError.classList.add('flex');
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Submit Feedback';
+                 setTimeout(() => {
+                    feedbackError.classList.add('hidden');
+                 }, 3000);
+             }
+        }, 1500);
+    });
+    closePopupBtn.addEventListener('click', () => {
+        thankYouPopup.classList.add('hidden');
+        confettiContainer.innerHTML = ''; // Clear confetti
+        // Reset form or redirect
+        window.location.reload(); 
+    });
+</script>
+
+</body></html>

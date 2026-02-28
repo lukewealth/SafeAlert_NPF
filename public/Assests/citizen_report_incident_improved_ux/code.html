@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>NPF SafeAlert - Report Incident</title>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings:
+      'FILL' 0,
+      'wght' 400,
+      'GRAD' 0,
+      'opsz' 24
+    }
+  </style>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#008000",
+            "primary-blue": "#007bff",
+            "background-light": "#f5f8f5",
+            "background-dark": "#0f230f",
+            "npf-grey": "#f0f5f0"
+          },
+          fontFamily: {
+            "display": ["Inter", "sans-serif"]
+          },
+          borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+        },
+      },
+    }
+  </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-gray-800 dark:text-gray-200">
+<div class="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden">
+<!-- Top App Bar -->
+<div class="flex items-center bg-white dark:bg-background-dark p-4 pb-2 justify-between border-b border-gray-200 dark:border-gray-700">
+<div class="text-[#101810] dark:text-white flex size-12 shrink-0 items-center">
+<span class="material-symbols-outlined text-2xl">arrow_back</span>
+</div>
+<h2 class="text-[#101810] dark:text-white text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center">Report an Incident</h2>
+<div class="size-12 shrink-0"></div>
+</div>
+<div class="p-4 space-y-6">
+<!-- Incident Type Selector -->
+<div class="flex flex-col">
+<label class="text-base font-medium leading-normal pb-2" for="incident-type">Incident Type</label>
+<select class="form-select flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#101810] focus:outline-0 focus:ring-0 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 focus:border-primary h-14 placeholder:text-gray-500 dark:placeholder:text-gray-400 p-3 text-base font-normal leading-normal" id="incident-type">
+<option>Select incident type</option>
+<option>Theft</option>
+<option>Vandalism</option>
+<option>Assault</option>
+<option>Suspicious Activity</option>
+</select>
+</div>
+<!-- Description Input -->
+<div class="flex flex-col">
+<label class="text-base font-medium leading-normal pb-2" for="description">Description</label>
+<div class="relative">
+<textarea class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#101810] focus:outline-0 focus:ring-0 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 focus:border-primary min-h-36 placeholder:text-gray-500 dark:placeholder:text-gray-400 p-3 text-base font-normal leading-normal" id="description" placeholder="Describe the incident... (e.g., time, location, persons involved)"></textarea>
+<button class="absolute bottom-3 right-3 text-gray-500 dark:text-gray-400">
+<span class="material-symbols-outlined text-2xl">mic</span>
+</button>
+</div>
+</div>
+<!-- Media Attachment -->
+<div class="flex justify-around items-center">
+<button class="flex flex-col items-center justify-center h-24 w-24 rounded-lg bg-npf-grey dark:bg-gray-800 text-[#101810] dark:text-white text-base font-bold leading-normal tracking-[0.015em]">
+<span class="material-symbols-outlined text-3xl">photo_camera</span>
+<span>Attach Photo</span>
+</button>
+<button class="flex flex-col items-center justify-center h-24 w-24 rounded-lg bg-npf-grey dark:bg-gray-800 text-[#101810] dark:text-white text-base font-bold leading-normal tracking-[0.015em]">
+<span class="material-symbols-outlined text-3xl">mic</span>
+<span>Attach Audio</span>
+</button>
+<button class="flex flex-col items-center justify-center h-24 w-24 rounded-lg bg-npf-grey dark:bg-gray-800 text-[#101810] dark:text-white text-base font-bold leading-normal tracking-[0.015em]">
+<span class="material-symbols-outlined text-3xl">videocam</span>
+<span>Attach Video</span>
+</button>
+</div>
+<!-- Upload Progress Example -->
+<div class="flex items-center gap-4 bg-white dark:bg-gray-800 p-3 rounded-lg border border-primary">
+<div class="relative h-12 w-12">
+<svg class="h-full w-full" height="36" viewbox="0 0 36 36" width="36" xmlns="http://www.w3.org/2000/svg">
+<circle class="stroke-current text-gray-200 dark:text-gray-700" cx="18" cy="18" fill="none" r="16" stroke-width="2"></circle>
+<circle class="stroke-current text-primary" cx="18" cy="18" fill="none" r="16" stroke-dasharray="100" stroke-dashoffset="50" stroke-width="2" style="transition: stroke-dashoffset 0.3s;"></circle>
+</svg>
+<div class="absolute top-0 left-0 h-full w-full flex items-center justify-center text-primary text-sm font-bold">50%</div>
+</div>
+<div class="flex-1">
+<p class="font-medium text-sm">Uploading video.mp4</p>
+<p class="text-xs text-gray-500 dark:text-gray-400">12.5MB of 25MB</p>
+</div>
+<span class="material-symbols-outlined text-primary">check_circle</span>
+</div>
+<!-- Anonymity Toggle -->
+<div class="flex items-center gap-4 bg-white dark:bg-gray-800 p-4 rounded-lg">
+<p class="text-[#101810] dark:text-white text-base font-normal leading-normal flex-1 truncate">Report Anonymously</p>
+<div class="shrink-0 flex items-center gap-2">
+<div class="relative group">
+<span class="material-symbols-outlined text-gray-500 dark:text-gray-400 cursor-pointer">info</span>
+<div class="absolute bottom-full mb-2 w-64 bg-npf-grey dark:bg-gray-700 text-black dark:text-white text-xs rounded-lg p-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+                    When you report anonymously, your personal information will not be shared. However, this may limit our ability to follow up.
+                </div>
+</div>
+<label class="relative flex h-[31px] w-[51px] cursor-pointer items-center rounded-full border-none bg-npf-grey dark:bg-gray-700 p-0.5 has-[:checked]:justify-end has-[:checked]:bg-primary">
+<div class="h-full w-[27px] rounded-full bg-white" style="box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 8px, rgba(0, 0, 0, 0.06) 0px 3px 1px;"></div>
+<input checked="" class="invisible absolute" type="checkbox"/>
+</label>
+</div>
+</div>
+<!-- Community Watch Share -->
+<div class="flex items-center gap-4 bg-white dark:bg-gray-800 p-4 rounded-lg">
+<label class="flex items-center gap-4 cursor-pointer flex-1" for="share-community">
+<p class="text-[#101810] dark:text-white text-base font-normal leading-normal flex-1 truncate">Share with Local Community Watch</p>
+<input class="form-checkbox h-5 w-5 text-primary rounded focus:ring-primary-blue/50 border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 dark:checked:bg-primary" id="share-community" type="checkbox"/>
+</label>
+</div>
+<!-- Error Message Example -->
+<div class="flex items-center gap-2 p-3 rounded-lg bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-300">
+<span class="material-symbols-outlined">error</span>
+<p class="text-sm font-medium">Description is too short. Please provide more details.</p>
+</div>
+</div>
+<!-- Submit Button -->
+<div class="mt-auto p-4 bg-white dark:bg-background-dark border-t border-gray-200 dark:border-gray-700">
+<button class="w-full flex items-center justify-center overflow-hidden rounded-lg h-14 px-5 bg-primary-blue text-white text-lg font-bold leading-normal tracking-[0.015em] hover:bg-primary-blue/90 active:bg-primary-blue/80 transition-all duration-300">
+            Submit Report
+        </button>
+<!-- Progress Bar State -->
+<!-- <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-14 overflow-hidden">
+          <div class="bg-primary h-14 text-white text-lg font-bold flex items-center justify-center" style="width: 75%">
+            Submitting... 75%
+          </div>
+        </div> -->
+<!-- Success State -->
+<!-- <div class="w-full flex items-center justify-center overflow-hidden rounded-lg h-14 px-5 bg-primary text-white text-lg font-bold leading-normal tracking-[0.015em]">
+          <span class="material-symbols-outlined mr-2">check_circle</span>
+          Report Logged. Case ID: #12345
+        </div> -->
+</div>
+</div>
+<script>
+    const html = document.querySelector("html");
+    // Simple toggle for dark mode for demonstration
+    // In a real app, this would be handled with user preferences
+    // html.classList.toggle("dark"); 
+  </script>
+</body></html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>NPF SafeAlert</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#1976D2",
+            "alert-red": "#D32F2F",
+            "background-light": "#FFFFFF",
+            "background-dark": "#121212",
+            "dark-gray": "#424242",
+            "light-gray": "#E0E0E0",
+          },
+          fontFamily: {
+            "display": ["Public Sans", "sans-serif"]
+          },
+          borderRadius: {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+        },
+      },
+    }
+  </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display">
+<div class="relative flex flex-col h-screen w-full group/design-root overflow-y-auto">
+<!-- Top App Bar -->
+<div class="flex items-center bg-background-light dark:bg-background-dark p-4 pb-2 justify-between sticky top-0 z-10 shadow-sm dark:shadow-gray-800">
+<div class="flex size-12 shrink-0 items-center">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" data-alt="User profile picture" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuC-k96QKRezW9oMoFSpMXvwL2SDhmSDdj5Ht4oVh0P0aVvkb1b5G8aEprowyYLR7GAUpGnegEzDm59LHDiaDel3Y9wROiCgj99wpdnoMwZ3dZIlzN1G1r53s0nvLFZeuvpNivrqVld8SL37_bGqgr_iyG3S8MA6x2d4-_cX4aIcvRgqwoFSYVmZlzBJMR-IBRFhhIAS6ZYfsxUo7Fj-MxXjAzaftaLW34eiKqEus_991ElzZYbV-jG1paSfh5UOW44Tx3jyU_97CXyL");'></div>
+</div>
+<h2 class="text-dark-gray dark:text-light-gray text-xl font-bold leading-tight tracking-[-0.015em] flex-1 text-center">NPF SafeAlert</h2>
+<div class="flex w-12 items-center justify-end">
+<button class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 bg-transparent text-dark-gray dark:text-light-gray gap-2 text-base font-bold leading-normal tracking-[0.015em] min-w-0 p-0">
+<span class="material-symbols-outlined text-dark-gray dark:text-light-gray" style="font-size: 28px;">notifications</span>
+</button>
+</div>
+</div>
+<!-- Main Content -->
+<main class="flex-grow flex flex-col items-center justify-center p-4">
+<!-- SOS Button -->
+<div class="flex justify-center items-center my-8">
+<button class="relative flex items-center justify-center size-48 rounded-full bg-alert-red text-white shadow-lg group">
+<span class="absolute inset-0 rounded-full bg-alert-red opacity-20 animate-ping group-hover:animate-none"></span>
+<span class="text-4xl font-bold tracking-wider">SOS</span>
+</button>
+</div>
+<!-- Quick Action Grid -->
+<div class="grid grid-cols-2 gap-4 w-full max-w-md">
+<div class="flex flex-col items-center justify-center gap-3 rounded-xl bg-light-gray dark:bg-dark-gray p-4 cursor-pointer">
+<span class="material-symbols-outlined text-primary" style="font-size: 32px;">directions_car</span>
+<h2 class="text-dark-gray dark:text-light-gray text-base font-bold text-center">Road Alert</h2>
+</div>
+<div class="flex flex-col items-center justify-center gap-3 rounded-xl bg-light-gray dark:bg-dark-gray p-4 cursor-pointer">
+<span class="material-symbols-outlined text-primary" style="font-size: 32px;">gavel</span>
+<h2 class="text-dark-gray dark:text-light-gray text-base font-bold text-center">Report Crime</h2>
+</div>
+<div class="flex flex-col items-center justify-center gap-3 rounded-xl bg-light-gray dark:bg-dark-gray p-4 cursor-pointer">
+<span class="material-symbols-outlined text-primary" style="font-size: 32px;">person_search</span>
+<h2 class="text-dark-gray dark:text-light-gray text-base font-bold text-center">Missing Person</h2>
+</div>
+<div class="flex flex-col items-center justify-center gap-3 rounded-xl bg-light-gray dark:bg-dark-gray p-4 cursor-pointer">
+<span class="material-symbols-outlined text-primary" style="font-size: 32px;">visibility</span>
+<h2 class="text-dark-gray dark:text-light-gray text-base font-bold text-center">Suspicious Activity</h2>
+</div>
+</div>
+</main>
+<!-- Mini Map Footer -->
+<div class="p-4 mt-auto">
+<div class="w-full h-48 bg-center bg-no-repeat aspect-video bg-cover rounded-xl object-cover shadow-md" data-alt="Mini map showing user location and nearby police stations" data-location="Lagos, Nigeria" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDK5VeBY5b5tOqkJFDbO9LoTmBRNcJOVkcSPJrPq7OYX9uSsJX-u-700Pl2r925CnKi5MNyUD6kAwnHSxVlHtE3ybP2_Vo1p6Nb8lgJOoH_7dowkN2g4of_1Pkh0bI27ix7aYgco4nMXtT0FU51jcOrcMeX-6DKrR-Ih0FnUYC6M6X3--1l2DBsRBg8fh0h_fCjKCF49sGME5PipX656fljRAgTw7DMaEsV_6bFjNpDl040lhHtKStyDmGzGyvuMV5czeTd-2OnP-zB");'></div>
+</div>
+</div>
+</body></html>

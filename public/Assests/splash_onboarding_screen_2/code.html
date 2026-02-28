@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>NPF SafeAlert Onboarding</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#0052CC",
+              "soft-gray": "#F0F0F0",
+            },
+            fontFamily: {
+              display: ["Public Sans", "sans-serif"],
+            },
+            borderRadius: {
+              DEFAULT: "0.25rem",
+              lg: "0.5rem",
+              xl: "0.75rem",
+              full: "9999px",
+            },
+          },
+        },
+      };
+    </script>
+<style>
+      .hide-scrollbar::-webkit-scrollbar {
+        display: none;
+      }
+      .hide-scrollbar {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+    </style>
+<style>
+      body {
+        min-height: max(884px, 100dvh);
+      }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-soft-gray font-display">
+<div class="relative flex h-screen min-h-screen w-full flex-col bg-soft-gray group/design-root overflow-hidden">
+<div class="flex-1 flex flex-col items-center justify-center pt-16">
+<div class="w-full overflow-x-auto snap-x snap-mandatory flex hide-scrollbar">
+<div class="w-full flex-shrink-0 snap-center flex flex-col items-center justify-center text-center px-8">
+<div class="w-64 h-64 bg-white rounded-full flex items-center justify-center shadow-lg">
+<span class="material-symbols-outlined text-primary" style="font-size: 120px"> sos </span>
+</div>
+<h2 class="text-2xl font-bold text-gray-800 mt-8">Send SOS Alert</h2>
+<p class="text-gray-600 mt-2">Instantly notify police and your emergency contacts with a single tap.</p>
+</div>
+<div class="w-full flex-shrink-0 snap-center flex flex-col items-center justify-center text-center px-8">
+<div class="w-64 h-64 bg-white rounded-full flex items-center justify-center shadow-lg">
+<span class="material-symbols-outlined text-primary" style="font-size: 120px"> pin_drop </span>
+</div>
+<h2 class="text-2xl font-bold text-gray-800 mt-8">Track Response</h2>
+<p class="text-gray-600 mt-2">See real-time location of responders heading your way.</p>
+</div>
+<div class="w-full flex-shrink-0 snap-center flex flex-col items-center justify-center text-center px-8">
+<div class="w-64 h-64 bg-white rounded-full flex items-center justify-center shadow-lg">
+<span class="material-symbols-outlined text-primary" style="font-size: 120px"> edit_document </span>
+</div>
+<h2 class="text-2xl font-bold text-gray-800 mt-8">Submit Reports</h2>
+<p class="text-gray-600 mt-2">Easily report incidents with photos and descriptions to help your community.</p>
+</div>
+</div>
+</div>
+<div class="w-full px-8 pb-10 pt-8">
+<div class="flex items-center justify-center space-x-2 mb-8">
+<div class="w-2.5 h-2.5 bg-primary rounded-full"></div>
+<div class="w-2.5 h-2.5 bg-gray-300 rounded-full"></div>
+<div class="w-2.5 h-2.5 bg-gray-300 rounded-full"></div>
+</div>
+<div class="flex items-center justify-between">
+<button class="text-gray-500 font-medium px-4 py-2">Skip</button>
+<button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-6 bg-primary text-white text-base font-bold leading-normal tracking-[0.015em]">
+<span class="truncate">Next</span>
+<span class="material-symbols-outlined ml-2"> arrow_forward </span>
+</button>
+</div>
+</div>
+</div>
+
+</body></html>

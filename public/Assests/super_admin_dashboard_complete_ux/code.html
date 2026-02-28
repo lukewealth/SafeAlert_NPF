@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>NPF SafeAlert Super Admin Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#00529B", // Professional Blue
+            "primary-light": "rgba(0, 82, 155, 0.1)",
+            "background-light": "#f8f5f5",
+            "background-dark": "#1a1a1a",
+            "text-light": "#1c0d0d",
+            "text-dark": "#f0f0f0",
+            "border-light": "#e0e0e0",
+            "border-dark": "#333333",
+            "accent-green": "#22C55E",
+            "accent-yellow": "#FBBF24",
+            "accent-red": "#EF4444",
+          },
+          fontFamily: {
+            "display": ["Inter", "sans-serif"]
+          },
+          borderRadius: {
+            "DEFAULT": "0.5rem",
+            "lg": "0.75rem",
+            "xl": "1rem",
+            "full": "9999px"
+          },
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-text-light dark:text-text-dark">
+<div class="relative flex min-h-screen w-full flex-col">
+<!-- Sticky Header -->
+<header class="sticky top-0 z-10 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-sm shadow-sm">
+<div class="flex items-center p-4 pb-2 justify-between">
+<h1 class="text-xl font-bold leading-tight tracking-tight flex-1">Super Admin Dashboard</h1>
+<div class="flex items-center gap-2">
+<button class="flex items-center justify-center rounded-full h-10 w-10 text-text-light dark:text-text-dark">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="flex items-center justify-center rounded-full h-10 w-10 text-text-light dark:text-text-dark">
+<span class="material-symbols-outlined">account_circle</span>
+</button>
+</div>
+</div>
+<div class="px-4 pt-2 pb-4">
+<label class="flex flex-col min-w-40 h-12 w-full">
+<div class="flex w-full flex-1 items-stretch rounded-lg h-full">
+<div class="text-text-light/70 dark:text-text-dark/70 flex border-none bg-background-light dark:bg-background-dark border dark:border-border-dark items-center justify-center pl-4 rounded-l-lg border-r-0">
+<span class="material-symbols-outlined">search</span>
+</div>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-text-light dark:text-text-dark focus:outline-0 focus:ring-2 focus:ring-primary border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark focus:border-primary h-full placeholder:text-text-light/50 dark:placeholder:text-text-dark/50 px-4 rounded-l-none border-l-0 pl-2 text-base font-normal leading-normal" placeholder="Search units, officers, incidents..." value=""/>
+</div>
+</label>
+</div>
+<div class="flex gap-3 p-4 pt-0 overflow-x-auto [-ms-scrollbar-style:none] [scrollbar-width:none] [&amp;::-webkit-scrollbar]:hidden">
+<div class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-full bg-primary-light px-4 cursor-pointer">
+<span class="material-symbols-outlined text-primary">settings</span>
+<p class="text-primary text-sm font-medium leading-normal">System Settings</p>
+</div>
+<div class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-full bg-primary-light px-4 cursor-pointer">
+<span class="material-symbols-outlined text-primary">history</span>
+<p class="text-primary text-sm font-medium leading-normal">Master Audit Log</p>
+</div>
+</div>
+</header>
+<!-- Main Content -->
+<main class="flex-1 p-4 space-y-6">
+<!-- Region/State Selector -->
+<div class="flex max-w-full flex-wrap items-end gap-4">
+<label class="flex flex-col min-w-40 flex-1">
+<p class="text-text-light dark:text-text-dark text-base font-medium leading-normal pb-2">Region/State</p>
+<select class="form-select flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-text-light dark:text-text-dark focus:outline-0 focus:ring-2 focus:ring-primary border border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark focus:border-primary h-14 p-[15px] text-base font-normal leading-normal appearance-none bg-no-repeat bg-right" style="background-image: url('data:image/svg+xml,%3csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%2724px%27 height=%2724px%27 fill=%27%2300529B%27 viewBox=%270 0 256 256%27%3e%3cpath d=%27M215.39 92.94a8 8 0 00-11.38 0L128 169.31 51.94 92.94a8 8 0 00-11.32 11.32l82.05 82.04a8 8 0 0011.38 0l81.34-82.04a8 8 0 000-11.32z%27%3e%3c/path%3e%3c/svg%3e');">
+<option value="one">Select State/Region</option>
+<option value="lagos">Lagos State</option>
+<option value="kano">Kano State</option>
+<option value="rivers">Rivers State</option>
+<option value="abuja">FCT Abuja</option>
+</select>
+</label>
+</div>
+<!-- Regional/State Overview Carousel -->
+<section>
+<h2 class="text-lg font-semibold mb-3">Regional/State Overview</h2>
+<div class="flex overflow-x-auto [-ms-scrollbar-style:none] [scrollbar-width:none] [&amp;::-webkit-scrollbar]:hidden -mx-4 px-4">
+<div class="flex items-stretch gap-4">
+<!-- Card 1: Lagos -->
+<div class="flex h-full flex-1 flex-col gap-4 rounded-xl bg-white dark:bg-background-dark dark:border dark:border-border-dark shadow-sm p-4 min-w-[280px] cursor-pointer hover:shadow-lg transition-shadow">
+<div class="flex justify-between items-start">
+<div>
+<p class="text-text-light dark:text-text-dark text-lg font-semibold leading-normal">Lagos State</p>
+<p class="text-text-light/60 dark:text-text-dark/60 text-sm font-normal">South West</p>
+</div>
+<div class="flex items-center gap-2 text-accent-green">
+<span class="material-symbols-outlined text-base">verified</span>
+<p class="text-sm font-medium">Fully Verified</p>
+</div>
+</div>
+<div class="space-y-2">
+<p class="text-sm"><span class="font-medium">Total Units:</span> 150</p>
+<p class="text-sm"><span class="font-medium">Active Officers:</span> 5,000</p>
+<p class="text-sm"><span class="font-medium">Incidents (24h):</span> 32</p>
+</div>
+<div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2 mt-auto">
+<div class="bg-accent-green h-2 rounded-full" style="width: 100%"></div>
+</div>
+</div>
+<!-- Card 2: Kano -->
+<div class="flex h-full flex-1 flex-col gap-4 rounded-xl bg-white dark:bg-background-dark dark:border dark:border-border-dark shadow-sm p-4 min-w-[280px] cursor-pointer hover:shadow-lg transition-shadow">
+<div class="flex justify-between items-start">
+<div>
+<p class="text-text-light dark:text-text-dark text-lg font-semibold leading-normal">Kano State</p>
+<p class="text-text-light/60 dark:text-text-dark/60 text-sm font-normal">North West</p>
+</div>
+<div class="flex items-center gap-2 text-accent-yellow">
+<span class="material-symbols-outlined text-base">gpp_maybe</span>
+<p class="text-sm font-medium">Partial</p>
+</div>
+</div>
+<div class="space-y-2">
+<p class="text-sm"><span class="font-medium">Total Units:</span> 120</p>
+<p class="text-sm"><span class="font-medium">Active Officers:</span> 4,200</p>
+<p class="text-sm"><span class="font-medium">Incidents (24h):</span> 25</p>
+</div>
+<div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2 mt-auto">
+<div class="bg-accent-yellow h-2 rounded-full" style="width: 75%"></div>
+</div>
+</div>
+<!-- Card 3: Rivers -->
+<div class="flex h-full flex-1 flex-col gap-4 rounded-xl bg-white dark:bg-background-dark dark:border dark:border-border-dark shadow-sm p-4 min-w-[280px] cursor-pointer hover:shadow-lg transition-shadow">
+<div class="flex justify-between items-start">
+<div>
+<p class="text-text-light dark:text-text-dark text-lg font-semibold leading-normal">Rivers State</p>
+<p class="text-text-light/60 dark:text-text-dark/60 text-sm font-normal">South South</p>
+</div>
+<div class="flex items-center gap-2 text-accent-red">
+<span class="material-symbols-outlined text-base">error</span>
+<p class="text-sm font-medium">Issues Found</p>
+</div>
+</div>
+<div class="space-y-2">
+<p class="text-sm"><span class="font-medium">Total Units:</span> 100</p>
+<p class="text-sm"><span class="font-medium">Active Officers:</span> 3,500</p>
+<p class="text-sm"><span class="font-medium">Incidents (24h):</span> 18</p>
+</div>
+<div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2 mt-auto">
+<div class="bg-accent-red h-2 rounded-full" style="width: 40%"></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Mini-Map and Reports -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+<!-- Mini-Map -->
+<div class="lg:col-span-2">
+<h2 class="text-lg font-semibold mb-3">Contextual Map</h2>
+<div class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-xl flex flex-col shadow-sm" data-alt="A stylized map of a region showing color-coded heat zones for incident density." style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDW_zMhmEZVIPSDnPePlQrbzUmg-tSRJ4JVmrUoHmqvcSNzvw813lkB30TGw2_jUSSZVaesuJqUkorN_gZ-l_yaJAjoFDGm4st7ZeiHPfXRISmwV8QnZjV-KFdNolf8HpBfzMetivPzQKtrPU5UAaH0nCdpyM5klrV5pARHGxWvnkFDppFdwKLgSmitwZ54fES1dCvBKuTXsFb_PZ7wL-N1IdE41Frg_OmVcNwJzTy12RgsbYfVVnpdMF5i1oZEzROml5qajUvZaPL1");'>
+<div class="p-4 bg-black/20 rounded-xl flex-1 flex items-end">
+<p class="text-white text-lg font-bold">Lagos State - Incident Heatmap</p>
+</div>
+</div>
+</div>
+<!-- Quick Access Reports -->
+<div>
+<h2 class="text-lg font-semibold mb-3">Quick Access: Top Reports</h2>
+<div class="space-y-3">
+<div class="p-4 rounded-lg bg-white dark:bg-background-dark dark:border dark:border-border-dark shadow-sm">
+<p class="text-sm font-medium text-text-light dark:text-text-dark">Highest Alert Volume</p>
+<p class="text-primary font-semibold">Lagos State</p>
+</div>
+<div class="p-4 rounded-lg bg-white dark:bg-background-dark dark:border dark:border-border-dark shadow-sm">
+<p class="text-sm font-medium text-text-light dark:text-text-dark">Unit with Fastest Response</p>
+<p class="text-primary font-semibold">Ikeja GRA Division</p>
+</div>
+<div class="p-4 rounded-lg bg-white dark:bg-background-dark dark:border dark:border-border-dark shadow-sm">
+<p class="text-sm font-medium text-text-light dark:text-text-dark">Most Verified Units</p>
+<p class="text-primary font-semibold">FCT Abuja</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Department Admin Officers -->
+<section>
+<h2 class="text-lg font-semibold mb-3">Find Department Admin Officers</h2>
+<div class="p-4 rounded-xl bg-white dark:bg-background-dark dark:border dark:border-border-dark shadow-sm">
+<label class="flex flex-col min-w-40 h-12 w-full mb-4">
+<div class="flex w-full flex-1 items-stretch rounded-lg h-full">
+<div class="text-text-light/70 dark:text-text-dark/70 flex border-none bg-background-light dark:bg-gray-700 items-center justify-center pl-4 rounded-l-lg border-r-0">
+<span class="material-symbols-outlined">search</span>
+</div>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-text-light dark:text-text-dark focus:outline-0 focus:ring-2 focus:ring-primary border border-border-light dark:border-gray-600 bg-background-light dark:bg-gray-700 focus:border-primary h-full placeholder:text-text-light/50 dark:placeholder:text-text-dark/50 px-4 rounded-l-none border-l-0 pl-2 text-base font-normal leading-normal" placeholder="Search by name, rank, or unit..." value=""/>
+</div>
+</label>
+<div class="space-y-3 max-h-96 overflow-y-auto">
+<div class="flex items-center justify-between p-3 rounded-lg hover:bg-primary-light dark:hover:bg-gray-800">
+<div class="flex items-center gap-3">
+<img class="w-12 h-12 rounded-full object-cover" data-alt="Profile picture of an admin officer" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBXFs9iJ4Z1oYoDxaZ7Dmp7c1ccuusudZJikmqX8FbzdJvUd20Vt_9gjCFPqUY__K9fLfAuwqIkq42Z1kMglSL61z9e8LGOX0jMsPcGKWLQh4sr5KuwNSjNILthu96SfqOJ4t5Rh8L2NXfIwKCO14PZUVAFyS8gwryQrvsPLumY5cp2ttqFMQqT8_IMvxpugMPNqL5TthynE-fSpaivrZ86LHZ8ocvRza7NS6VdqZI3E7oLlp2Lb-YqZJNBLAxdWXyWVyPFBfSaeHbq"/>
+<div>
+<p class="font-semibold text-text-light dark:text-text-dark">CSP Adekunle Gold</p>
+<p class="text-sm text-text-light/70 dark:text-text-dark/70">Ikeja Division, Lagos</p>
+</div>
+</div>
+<button class="text-primary"><span class="material-symbols-outlined">chevron_right</span></button>
+</div>
+<div class="flex items-center justify-between p-3 rounded-lg hover:bg-primary-light dark:hover:bg-gray-800">
+<div class="flex items-center gap-3">
+<img class="w-12 h-12 rounded-full object-cover" data-alt="Profile picture of an admin officer" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAl125AoPvwAFERYDqRPHelM9TLfLIkq6KoXlKVppQKGr3sTMWS16Q0gEzQzt4qNPDKl-MW4KeT89hB-nL1_F64vQSlCX2liI2JB8OyoQ0N-m-OHMgzkaNqgl0jfmN7DwMYY1i49T-wHmUSl6FWoxRf20-Y9Fw2z846veEGb9yHl_x-uimY-C-_F737Q1XsM3Tjmncp8zB9vnWCK4HcQK8LURCJMmwx1rblaoNT6hE2Pa6eOOIjbtzoMOLfx-ehiicV16uZHW59QCew"/>
+<div>
+<p class="font-semibold text-text-light dark:text-text-dark">SP Fatima Bello</p>
+<p class="text-sm text-text-light/70 dark:text-text-dark/70">Fagge Division, Kano</p>
+</div>
+</div>
+<button class="text-primary"><span class="material-symbols-outlined">chevron_right</span></button>
+</div>
+<div class="flex items-center justify-between p-3 rounded-lg hover:bg-primary-light dark:hover:bg-gray-800">
+<div class="flex items-center gap-3">
+<img class="w-12 h-12 rounded-full object-cover" data-alt="Profile picture of an admin officer" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDpyWh3VrmucOrtUjeluUKmUQHMFr54zO8R8d98HrkDZpgxHJOq6bXHPQMtSSToOyllaMLuOqdFm_NSSrcpSDJf27CJ_-T33rChL88tdQD50FSvwp78GwBQ0bm1E1mNxgb9VlxJ68uAkC4LHdiztfmP8CGX5q-HyYgB6GcwdVVlOJ0Kx4AYAhR9IQONH19QHPv0QmzNSHASucvyfC21GUv0_fesHzZVTBudFJ2qBIwuKPLfB-Yr4K7wTi8yCUmEG9PlJu60CDdC6Wsx"/>
+<div>
+<p class="font-semibold text-text-light dark:text-text-dark">DSP Chidi Okoro</p>
+<p class="text-sm text-text-light/70 dark:text-text-dark/70">Trans-Amadi, Rivers</p>
+</div>
+</div>
+<button class="text-primary"><span class="material-symbols-outlined">chevron_right</span></button>
+</div>
+</div>
+</div>
+</section>
+</main>
+</div>
+</body></html>

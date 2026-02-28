@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>NPF SafeAlert Mobile App - Success Message</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#05c705",
+                        "background-light": "#f5f8f5",
+                        "background-dark": "#0f230f",
+                    },
+                    fontFamily: {
+                        "display": ["Public Sans"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings:
+            'FILL' 0,
+            'wght' 400,
+            'GRAD' 0,
+            'opsz' 24
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display">
+<div class="relative flex h-screen w-full flex-col items-center justify-center p-4">
+<!-- Toast Notification -->
+<div class="absolute top-10 w-full max-w-sm">
+<div class="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden" style='font-family: "Public Sans", "Noto Sans", sans-serif;'>
+<div class="flex items-center gap-4 bg-white dark:bg-background-dark shadow-lg rounded-lg px-4 py-3 min-h-14 border border-gray-200 dark:border-gray-700">
+<div class="text-primary flex items-center justify-center rounded-full bg-primary/20 shrink-0 size-10">
+<span class="material-symbols-outlined">check_circle</span>
+</div>
+<p class="text-gray-800 dark:text-gray-200 text-base font-medium leading-normal flex-1 truncate">Report Submitted Successfully!</p>
+</div>
+</div>
+</div>
+<!-- Full-Screen Modal Trigger -->
+<div class="text-center">
+<h1 class="text-2xl font-bold text-gray-800 dark:text-gray-200 mb-4">NPF SafeAlert</h1>
+<p class="text-gray-600 dark:text-gray-400 mb-8">Tap the button to trigger a full-screen success modal.</p>
+<button class="bg-primary text-white font-semibold py-2 px-6 rounded-lg shadow-md hover:bg-primary/90 transition-colors" id="show-modal-btn">Show Modal</button>
+</div>
+<!-- Full-Screen Modal -->
+<div class="fixed inset-0 bg-black bg-opacity-50 dark:bg-opacity-70 flex items-center justify-center p-4 z-50 opacity-0 pointer-events-none transition-opacity duration-300" id="success-modal">
+<div class="bg-background-light dark:bg-background-dark w-full max-w-md rounded-xl shadow-2xl p-8 text-center flex flex-col items-center">
+<div class="bg-primary/20 p-4 rounded-full mb-6">
+<span class="material-symbols-outlined text-primary text-6xl">task_alt</span>
+</div>
+<h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-2">Success!</h2>
+<p class="text-gray-600 dark:text-gray-300 mb-8">Your profile has been updated successfully.</p>
+<button class="bg-primary text-white font-semibold py-2 px-8 rounded-lg shadow-md hover:bg-primary/90 transition-colors" id="dismiss-modal-btn">Dismiss</button>
+</div>
+</div>
+</div>
+<script>
+        const showModalBtn = document.getElementById('show-modal-btn');
+        const dismissModalBtn = document.getElementById('dismiss-modal-btn');
+        const successModal = document.getElementById('success-modal');
+
+        showModalBtn.addEventListener('click', () => {
+            successModal.classList.remove('opacity-0', 'pointer-events-none');
+        });
+
+        dismissModalBtn.addEventListener('click', () => {
+            successModal.classList.add('opacity-0', 'pointer-events-none');
+        });
+
+        // Optional: Close modal when clicking on the background
+        successModal.addEventListener('click', (e) => {
+            if (e.target === successModal) {
+                successModal.classList.add('opacity-0', 'pointer-events-none');
+            }
+        });
+    </script>
+</body></html>

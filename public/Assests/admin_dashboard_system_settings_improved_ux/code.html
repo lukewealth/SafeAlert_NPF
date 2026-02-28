@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>NPF SafeAlert Mobile App - Admin Command Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#003366",
+                        "background-light": "#FFFFFF",
+                        "background-dark": "#121212",
+                        "accent-green": "#4CAF50",
+                        "accent-gray": "#E0E0E0",
+                        "accent-red": "#D32F2F"
+                    },
+                    fontFamily: {
+                        "display": ["Public Sans", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-[#181111] dark:text-gray-200">
+<div class="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden">
+<div class="flex items-center bg-primary p-4 pb-3 justify-between sticky top-0 z-10">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-white cursor-pointer">arrow_back</span>
+<h2 class="text-white text-lg font-bold leading-tight tracking-[-0.015em] flex-1">System Settings</h2>
+</div>
+</div>
+<div class="flex flex-col gap-4 p-4">
+<div class="flex items-center gap-4 bg-background-light dark:bg-zinc-800 px-4 min-h-14 justify-between rounded-lg shadow-sm">
+<div class="flex items-center gap-4">
+<div class="text-primary dark:text-white flex items-center justify-center rounded-lg bg-primary/10 dark:bg-primary/30 shrink-0 size-10">
+<span class="material-symbols-outlined">group</span>
+</div>
+<p class="text-base font-normal leading-normal flex-1 truncate">User Management</p>
+</div>
+<div class="shrink-0">
+<div class="text-primary dark:text-white flex size-7 items-center justify-center">
+<span class="material-symbols-outlined">chevron_right</span>
+</div>
+</div>
+</div>
+<div class="flex flex-col border border-accent-gray dark:border-zinc-700 rounded-lg shadow-sm">
+<details class="flex flex-col group" open="">
+<summary class="flex cursor-pointer items-center justify-between gap-6 p-4">
+<div class="flex items-center gap-4">
+<div class="text-primary dark:text-white flex items-center justify-center rounded-lg bg-primary/10 dark:bg-primary/30 shrink-0 size-10">
+<span class="material-symbols-outlined">security</span>
+</div>
+<p class="text-base font-medium leading-normal">Security &amp; Encryption</p>
+</div>
+<div class="text-primary dark:text-white group-open:rotate-180 transition-transform">
+<span class="material-symbols-outlined">expand_more</span>
+</div>
+</summary>
+<div class="px-4 pb-4 flex flex-col gap-4 border-t border-accent-gray dark:border-zinc-700 pt-4">
+<div class="flex items-center gap-4 justify-between">
+<div class="flex items-center gap-4">
+<div class="text-primary dark:text-white flex items-center justify-center rounded-lg bg-primary/10 dark:bg-primary/30 shrink-0 size-10">
+<span class="material-symbols-outlined">shield</span>
+</div>
+<p class="text-sm font-normal leading-normal flex-1 truncate">Enable Two-Factor Authentication</p>
+</div>
+<div class="shrink-0">
+<label class="relative flex h-[31px] w-[51px] cursor-pointer items-center rounded-full border-none bg-accent-gray dark:bg-zinc-700 p-0.5 has-[:checked]:justify-end has-[:checked]:bg-accent-green">
+<div class="h-full w-[27px] rounded-full bg-white dark:bg-zinc-300" style="box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 8px, rgba(0, 0, 0, 0.06) 0px 3px 1px;"></div>
+<input checked="" class="invisible absolute" type="checkbox"/>
+</label>
+</div>
+</div>
+<div class="flex items-center gap-4 justify-between">
+<div class="flex items-center gap-4">
+<div class="text-primary dark:text-white flex items-center justify-center rounded-lg bg-primary/10 dark:bg-primary/30 shrink-0 size-10">
+<span class="material-symbols-outlined">key</span>
+</div>
+<p class="text-sm font-normal leading-normal flex-1 truncate">Manage Encryption Keys</p>
+</div>
+<div class="shrink-0">
+<div class="text-primary dark:text-white flex size-7 items-center justify-center">
+<span class="material-symbols-outlined">chevron_right</span>
+</div>
+</div>
+</div>
+</div>
+</details>
+</div>
+<div class="flex flex-col border border-accent-gray dark:border-zinc-700 rounded-lg shadow-sm">
+<details class="flex flex-col group">
+<summary class="flex cursor-pointer items-center justify-between gap-6 p-4">
+<div class="flex items-center gap-4">
+<div class="text-primary dark:text-white flex items-center justify-center rounded-lg bg-primary/10 dark:bg-primary/30 shrink-0 size-10">
+<span class="material-symbols-outlined">notifications</span>
+</div>
+<p class="text-base font-medium leading-normal">Notifications</p>
+</div>
+<div class="text-primary dark:text-white group-open:rotate-180 transition-transform">
+<span class="material-symbols-outlined">expand_more</span>
+</div>
+</summary>
+<div class="px-4 pb-4 flex flex-col gap-4 border-t border-accent-gray dark:border-zinc-700 pt-4">
+<div class="flex items-center gap-4 justify-between">
+<div class="flex items-center gap-4">
+<div class="text-primary dark:text-white flex items-center justify-center rounded-lg bg-primary/10 dark:bg-primary/30 shrink-0 size-10">
+<span class="material-symbols-outlined">push_pin</span>
+</div>
+<p class="text-sm font-normal leading-normal flex-1 truncate">Enable Push Notifications</p>
+</div>
+<div class="shrink-0">
+<label class="relative flex h-[31px] w-[51px] cursor-pointer items-center rounded-full border-none bg-accent-gray dark:bg-zinc-700 p-0.5 has-[:checked]:justify-end has-[:checked]:bg-accent-green">
+<div class="h-full w-[27px] rounded-full bg-white dark:bg-zinc-300" style="box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 8px, rgba(0, 0, 0, 0.06) 0px 3px 1px;"></div>
+<input checked="" class="invisible absolute" type="checkbox"/>
+</label>
+</div>
+</div>
+<div class="flex items-center gap-4 justify-between">
+<div class="flex items-center gap-4">
+<div class="text-primary dark:text-white flex items-center justify-center rounded-lg bg-primary/10 dark:bg-primary/30 shrink-0 size-10">
+<span class="material-symbols-outlined">email</span>
+</div>
+<p class="text-sm font-normal leading-normal flex-1 truncate">Configure Email Alerts</p>
+</div>
+<div class="shrink-0">
+<div class="text-primary dark:text-white flex size-7 items-center justify-center">
+<span class="material-symbols-outlined">chevron_right</span>
+</div>
+</div>
+</div>
+</div>
+</details>
+</div>
+<div class="flex flex-col border border-accent-gray dark:border-zinc-700 rounded-lg shadow-sm">
+<details class="flex flex-col group">
+<summary class="flex cursor-pointer items-center justify-between gap-6 p-4">
+<div class="flex items-center gap-4">
+<div class="text-primary dark:text-white flex items-center justify-center rounded-lg bg-primary/10 dark:bg-primary/30 shrink-0 size-10">
+<span class="material-symbols-outlined">database</span>
+</div>
+<p class="text-base font-medium leading-normal">Data &amp; Backup</p>
+</div>
+<div class="text-primary dark:text-white group-open:rotate-180 transition-transform">
+<span class="material-symbols-outlined">expand_more</span>
+</div>
+</summary>
+<div class="px-4 pb-4 flex flex-col gap-4 border-t border-accent-gray dark:border-zinc-700 pt-4">
+<div class="flex items-center gap-4 justify-between">
+<div class="flex items-center gap-4">
+<div class="text-primary dark:text-white flex items-center justify-center rounded-lg bg-primary/10 dark:bg-primary/30 shrink-0 size-10">
+<span class="material-symbols-outlined">backup</span>
+</div>
+<p class="text-sm font-normal leading-normal flex-1 truncate">Automatic Daily Backup</p>
+</div>
+<div class="shrink-0">
+<label class="relative flex h-[31px] w-[51px] cursor-pointer items-center rounded-full border-none bg-accent-gray dark:bg-zinc-700 p-0.5 has-[:checked]:justify-end has-[:checked]:bg-accent-green">
+<div class="h-full w-[27px] rounded-full bg-white dark:bg-zinc-300" style="box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 8px, rgba(0, 0, 0, 0.06) 0px 3px 1px;"></div>
+<input class="invisible absolute" type="checkbox"/>
+</label>
+</div>
+</div>
+<div class="flex flex-col gap-2">
+<label class="text-sm font-normal text-gray-600 dark:text-gray-400" for="backup-freq">Backup Frequency</label>
+<input class="w-full p-2 border border-accent-gray dark:border-zinc-600 rounded-md bg-background-light dark:bg-zinc-800 text-[#181111] dark:text-gray-200 placeholder:text-gray-400 dark:placeholder:text-zinc-500 focus:ring-2 focus:ring-primary/50 focus:border-primary" id="backup-freq" placeholder="e.g., Every 24 hours" type="text"/>
+</div>
+</div>
+</details>
+</div>
+<div class="flex flex-col border border-accent-gray dark:border-zinc-700 rounded-lg shadow-sm">
+<details class="flex flex-col group">
+<summary class="flex cursor-pointer items-center justify-between gap-6 p-4">
+<div class="flex items-center gap-4">
+<div class="text-primary dark:text-white flex items-center justify-center rounded-lg bg-primary/10 dark:bg-primary/30 shrink-0 size-10">
+<span class="material-symbols-outlined">policy</span>
+</div>
+<p class="text-base font-medium leading-normal">Audit Logging</p>
+</div>
+<div class="text-primary dark:text-white group-open:rotate-180 transition-transform">
+<span class="material-symbols-outlined">expand_more</span>
+</div>
+</summary>
+<div class="px-4 pb-4 flex flex-col gap-4 border-t border-accent-gray dark:border-zinc-700 pt-4">
+<div class="flex items-center gap-4 justify-between">
+<div class="flex items-center gap-4">
+<div class="text-primary dark:text-white flex items-center justify-center rounded-lg bg-primary/10 dark:bg-primary/30 shrink-0 size-10">
+<span class="material-symbols-outlined">plagiarism</span>
+</div>
+<p class="text-sm font-normal leading-normal flex-1 truncate">Enable Audit Logging</p>
+</div>
+<div class="shrink-0">
+<label class="relative flex h-[31px] w-[51px] cursor-pointer items-center rounded-full border-none bg-accent-gray dark:bg-zinc-700 p-0.5 has-[:checked]:justify-end has-[:checked]:bg-accent-green">
+<div class="h-full w-[27px] rounded-full bg-white dark:bg-zinc-300" style="box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 8px, rgba(0, 0, 0, 0.06) 0px 3px 1px;"></div>
+<input checked="" class="invisible absolute" type="checkbox"/>
+</label>
+</div>
+</div>
+<div class="flex flex-col gap-2">
+<label class="text-sm font-normal text-gray-600 dark:text-gray-400" for="retention-period">Log Retention Period (in days)</label>
+<input class="w-full p-2 border border-accent-gray dark:border-zinc-600 rounded-md bg-background-light dark:bg-zinc-800 text-[#181111] dark:text-gray-200 placeholder:text-gray-400 dark:placeholder:text-zinc-500 focus:ring-2 focus:ring-primary/50 focus:border-primary" id="retention-period" placeholder="e.g., 90" type="number"/>
+</div>
+</div>
+</details>
+</div>
+<div class="flex justify-end pt-4">
+<button class="bg-primary text-white font-bold py-3 px-6 rounded-lg shadow-md hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary disabled:bg-accent-gray dark:disabled:bg-zinc-700 disabled:cursor-not-allowed">
+                    Save Changes
+                </button>
+</div>
+</div>
+<!-- Toast Notification -->
+<div class="fixed bottom-5 left-1/2 -translate-x-1/2 bg-accent-green text-white py-2 px-6 rounded-full shadow-lg flex items-center gap-2 opacity-0 transition-opacity duration-300" id="toast">
+<span class="material-symbols-outlined">check_circle</span>
+<span>Settings saved successfully</span>
+</div>
+<!-- Confirmation Modal -->
+<div class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-20 hidden" id="modal">
+<div class="bg-background-light dark:bg-zinc-800 p-6 rounded-lg shadow-xl w-11/12 max-w-sm">
+<h3 class="text-lg font-bold text-primary dark:text-white">Confirm Action</h3>
+<p class="mt-2 text-sm text-gray-600 dark:text-gray-400">Are you sure you want to manage encryption keys? This is a sensitive operation.</p>
+<div class="mt-6 flex justify-end gap-4">
+<button class="px-4 py-2 rounded-md text-sm font-medium text-gray-700 dark:text-gray-300 bg-accent-gray/50 dark:bg-zinc-700 hover:bg-accent-gray/70">Cancel</button>
+<button class="px-4 py-2 rounded-md text-sm font-medium text-white bg-accent-red hover:bg-accent-red/90">Confirm</button>
+</div>
+</div>
+</div>
+</div>
+</body></html>

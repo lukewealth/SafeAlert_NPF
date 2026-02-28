@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Officer Report Input Data Form</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#000080",
+                        "background-light": "#f5f5f8",
+                        "background-dark": "#0f0f23",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display">
+<div class="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden">
+<div class="flex items-center bg-background-light dark:bg-background-dark p-4 pb-2 justify-between sticky top-0 z-10">
+<button class="text-[#0c0c1d] dark:text-white flex size-12 shrink-0 items-center justify-center">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<h1 class="text-[#0c0c1d] dark:text-white text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center">Case File Report - #CZN12345</h1>
+<button class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 bg-transparent text-[#0c0c1d] dark:text-white gap-2 text-base font-bold leading-normal tracking-[0.015em] min-w-0 p-0 w-12">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</div>
+<div class="p-4 @container">
+<div class="flex flex-col items-stretch justify-start rounded-lg @xl:flex-row @xl:items-start shadow-[0_0_4px_rgba(0,0,0,0.1)] bg-background-light dark:bg-background-dark/50">
+<div class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-t-lg @xl:rounded-l-lg @xl:rounded-r-none @xl:w-1/3" data-alt="Crime scene photo showing a street corner at night" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBqUldeAc25RpdlMcvBL1t0FxT69UlWg5JcYMszmFYNsr1hHgf80P3S_HzJvXF3xCAsy45fXg225Ma6h96oclVpOOlVD6UeOoFroEdvOOm5nlhpptHDjC6ZmOmBRLMHvi8xfOVh10eCtCwiyPiZiUhLZRBX5_OQA2UDL8tqM6DO_dx8brjbvHn8_AMg17bf4fmGVrMXN-yjF-7gXWOrZnPbC1DS3XJmgP6_RuyI7b4cYv9KbwZvSDSBR-d1ZSMhHowCdBCviEac1dsv");'></div>
+<div class="flex w-full min-w-72 grow flex-col items-stretch justify-center gap-2 p-4">
+<p class="text-primary/70 dark:text-primary/50 text-sm font-medium leading-normal">Citizen Incident ID: #CZN12345</p>
+<p class="text-[#0c0c1d] dark:text-white text-xl font-bold leading-tight tracking-[-0.015em]">Citizen Report Summary</p>
+<div class="flex items-start gap-3 justify-between mt-2">
+<div class="flex flex-col gap-1 flex-1">
+<p class="text-[#0c0c1d] dark:text-white text-base font-semibold">Robbery</p>
+<p class="text-gray-600 dark:text-gray-300 text-sm font-normal leading-normal">
+                                A brief summary of the citizen's original report, including key details like the time and location of the incident, a short description of what happened, and any initial observations.
+                            </p>
+<p class="text-gray-500 dark:text-gray-400 text-xs mt-2">Reported Time: 2024-05-10 10:30 PM</p>
+</div>
+</div>
+<div class="mt-2">
+<p class="text-[#0c0c1d] dark:text-white text-sm font-medium leading-normal mb-2">Citizen's Attached Media</p>
+<div class="flex gap-2">
+<img class="h-16 w-16 object-cover rounded-lg" data-alt="thumbnail of attached media" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCjeNVNsN0dBRfghPoWqXrcUo7o27cep08kQNE4c9ipPZqqdlbo76otugX5QpOMFo-Woh3zMPNnZzmk9Z5dxu5RgeZFbhPCw0Mcu1N19y-3LJ7-FTr7z1IsIvDKuPpStNEF4fxHPi53PVFfNb_DE2zmi6NbHeQ9Ud7g6EiwC8wWxkHBvLuDydlghXl70C3q6fBgwKuktTQ2bBSL7mzhp24yOg6R_DFLOqiMKDVp0sgOiJJlNvbXKU1PATyeDpgRVwY1o4Y10aRdNHdR"/>
+<img class="h-16 w-16 object-cover rounded-lg" data-alt="thumbnail of attached media" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDsMg7n3AdcfpBuiWyC5Mh13P-ylP15MJ3dstFwnm8ntZ2wtPTO2pFjR28ZO_89cVkn2i5OEiZAjaKKf9G8qKEKw83STgrz62ypIzOwPcMbcNRXILh52mTKfwqyXNEt1d2Q2wlJKZKXkRm9e2SJYD9PwQ5xOSGXzmR4wfzYbsXwaEMfVbWur13ip5s85MpVQ7rskH-7410iMIq4Vtz_V7u5zmIE-J_7bLXUhshRrGK6dXDb09Qf0dXj5nUKo-xOw6EXytAlsjKIqncO"/>
+</div>
+</div>
+</div>
+</div>
+</div>
+<h2 class="text-[#0c0c1d] dark:text-white text-xl font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">Officer Input</h2>
+<div class="flex flex-col gap-4 px-4 py-3">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<label class="flex flex-col min-w-40 flex-1">
+<p class="text-[#0c0c1d] dark:text-white text-base font-medium leading-normal pb-2">Officer ID</p>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-gray-500 dark:text-gray-400 focus:outline-0 focus:ring-0 border-none bg-gray-200 dark:bg-background-dark/60 h-14 placeholder:text-gray-500 p-4 text-base font-normal leading-normal" readonly="" value="OFCR-78901"/>
+</label>
+<label class="flex flex-col min-w-40 flex-1">
+<p class="text-[#0c0c1d] dark:text-white text-base font-medium leading-normal pb-2">Case Status</p>
+<div class="relative">
+<select class="form-select appearance-none flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#0c0c1d] dark:text-white focus:outline-0 focus:ring-2 focus:ring-primary/50 border-none bg-gray-200 dark:bg-background-dark/60 h-14 p-4 text-base font-normal leading-normal">
+<option>Investigating</option>
+<option>Assigned</option>
+<option>Resolved</option>
+<option>Closed</option>
+<option>Requires Follow-up</option>
+</select>
+<span class="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2 text-gray-500 dark:text-gray-400 pointer-events-none">expand_more</span>
+</div>
+</label>
+</div>
+<label class="flex flex-col">
+<p class="text-[#0c0c1d] dark:text-white text-base font-medium leading-normal pb-2">Response Actions Taken</p>
+<textarea class="form-textarea flex w-full min-w-0 flex-1 resize-y overflow-hidden rounded-lg text-[#0c0c1d] dark:text-white focus:outline-0 focus:ring-2 focus:ring-primary/50 border-none bg-gray-200 dark:bg-background-dark/60 min-h-[120px] placeholder:text-gray-500 dark:placeholder:text-gray-400 p-4 text-base font-normal leading-normal" placeholder="Describe actions, observations, and findings..."></textarea>
+</label>
+<div>
+<p class="text-[#0c0c1d] dark:text-white text-base font-medium leading-normal pb-2">Evidence Collected</p>
+<div class="flex items-center gap-2">
+<button class="flex items-center justify-center gap-2 h-12 px-4 rounded-lg bg-primary/20 text-primary dark:bg-primary/30 dark:text-white text-sm font-semibold">
+<span class="material-symbols-outlined">add_a_photo</span>
+                        Add Photo
+                    </button>
+<button class="flex items-center justify-center gap-2 h-12 px-4 rounded-lg bg-primary/20 text-primary dark:bg-primary/30 dark:text-white text-sm font-semibold">
+<span class="material-symbols-outlined">videocam</span>
+                        Add Video
+                    </button>
+<button class="flex items-center justify-center gap-2 h-12 px-4 rounded-lg bg-primary/20 text-primary dark:bg-primary/30 dark:text-white text-sm font-semibold">
+<span class="material-symbols-outlined">mic</span>
+                        Add Audio
+                    </button>
+</div>
+</div>
+<div class="border-t border-gray-200 dark:border-gray-700 pt-4 mt-4">
+<p class="text-[#0c0c1d] dark:text-white text-base font-medium leading-normal pb-2">Witness/Victim Information</p>
+<div class="space-y-4">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<input class="form-input flex w-full rounded-lg text-[#0c0c1d] dark:text-white focus:outline-0 focus:ring-2 focus:ring-primary/50 border-none bg-gray-200 dark:bg-background-dark/60 h-14 placeholder:text-gray-500 dark:placeholder:text-gray-400 p-4" placeholder="Full Name"/>
+<input class="form-input flex w-full rounded-lg text-[#0c0c1d] dark:text-white focus:outline-0 focus:ring-2 focus:ring-primary/50 border-none bg-gray-200 dark:bg-background-dark/60 h-14 placeholder:text-gray-500 dark:placeholder:text-gray-400 p-4" placeholder="Contact Information"/>
+</div>
+<textarea class="form-textarea flex w-full rounded-lg text-[#0c0c1d] dark:text-white focus:outline-0 focus:ring-2 focus:ring-primary/50 border-none bg-gray-200 dark:bg-background-dark/60 min-h-[80px] placeholder:text-gray-500 dark:placeholder:text-gray-400 p-4" placeholder="Statement..."></textarea>
+</div>
+<button class="mt-3 text-sm font-semibold text-primary dark:text-primary/80 hover:underline">Add another witness/victim</button>
+</div>
+<div class="flex items-center justify-between border-t border-gray-200 dark:border-gray-700 pt-4 mt-4">
+<p class="text-[#0c0c1d] dark:text-white text-base font-medium leading-normal">Follow-up Required</p>
+<label class="relative inline-flex items-center cursor-pointer">
+<input class="sr-only peer" type="checkbox" value=""/>
+<div class="w-11 h-6 bg-gray-200 dark:bg-gray-700 rounded-full peer peer-focus:ring-2 peer-focus:ring-primary/50 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-primary"></div>
+</label>
+</div>
+<div class="mt-2 hidden">
+<label class="flex flex-col">
+<p class="text-[#0c0c1d] dark:text-white text-base font-medium leading-normal pb-2">Follow-up Notes</p>
+<textarea class="form-textarea flex w-full min-w-0 flex-1 resize-y overflow-hidden rounded-lg text-[#0c0c1d] dark:text-white focus:outline-0 focus:ring-2 focus:ring-primary/50 border-none bg-gray-200 dark:bg-background-dark/60 min-h-[120px] placeholder:text-gray-500 dark:placeholder:text-gray-400 p-4 text-base font-normal leading-normal" placeholder="Add follow-up notes..."></textarea>
+</label>
+</div>
+</div>
+<div class="p-4 mt-auto sticky bottom-0 bg-background-light dark:bg-background-dark border-t border-gray-200 dark:border-gray-700">
+<div class="flex gap-4">
+<button class="flex-1 h-14 rounded-lg bg-gray-200 dark:bg-gray-700 text-[#0c0c1d] dark:text-white font-bold">Save Draft</button>
+<button class="flex-1 h-14 rounded-lg bg-primary text-white font-bold">Submit Case File</button>
+</div>
+</div>
+</div>
+<script>
+        // JS to show/hide follow-up notes based on toggle
+        const toggle = document.querySelector('input[type="checkbox"]');
+        const followUpNotes = document.querySelector('.mt-2.hidden');
+        toggle.addEventListener('change', (e) => {
+            if (e.target.checked) {
+                followUpNotes.classList.remove('hidden');
+            } else {
+                followUpNotes.classList.add('hidden');
+            }
+        });
+    </script>
+</body></html>

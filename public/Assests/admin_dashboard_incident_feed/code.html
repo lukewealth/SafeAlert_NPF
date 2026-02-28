@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+
+<html class="" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Incident Feed</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#003366",
+            "accent": "#FFD700",
+            "background-light": "#F5F5F5",
+            "background-dark": "#121212",
+          },
+          fontFamily: {
+            "display": ["Public Sans", "sans-serif"]
+          },
+          borderRadius: {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+        },
+      },
+    }
+  </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display">
+<div class="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden">
+<div class="flex items-center bg-background-light dark:bg-background-dark p-4 pb-2 justify-between border-b border-gray-200 dark:border-gray-800">
+<div class="text-gray-900 dark:text-white flex size-12 shrink-0 items-center">
+<span class="material-symbols-outlined text-2xl">
+          menu
+        </span>
+</div>
+<h2 class="text-gray-900 dark:text-white text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center">Incident Feed</h2>
+<div class="flex w-12 items-center justify-end">
+<button class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 bg-transparent text-gray-900 dark:text-white gap-2 text-base font-bold leading-normal tracking-[0.015em] min-w-0 p-0">
+<span class="material-symbols-outlined text-2xl">
+            search
+          </span>
+</button>
+</div>
+</div>
+<div class="pb-3 bg-background-light dark:bg-background-dark">
+<div class="flex border-b border-gray-200 dark:border-gray-800 px-4 justify-between">
+<a class="flex flex-col items-center justify-center border-b-[3px] border-b-transparent text-gray-500 dark:text-gray-400 pb-[13px] pt-4 flex-1" href="#">
+<p class="text-sm font-bold leading-normal tracking-[0.015em]">Live Alerts</p>
+</a>
+<a class="flex flex-col items-center justify-center border-b-[3px] border-b-primary text-gray-900 dark:text-white pb-[13px] pt-4 flex-1" href="#">
+<p class="text-sm font-bold leading-normal tracking-[0.015em]">Incident Feed</p>
+</a>
+<a class="flex flex-col items-center justify-center border-b-[3px] border-b-transparent text-gray-500 dark:text-gray-400 pb-[13px] pt-4 flex-1" href="#">
+<p class="text-sm font-bold leading-normal tracking-[0.015em]">System Ops</p>
+</a>
+</div>
+</div>
+<div class="flex-1 overflow-y-auto p-4 space-y-4">
+<div class="flex gap-4 bg-white dark:bg-gray-900 px-4 py-3 justify-between rounded-lg shadow">
+<div class="flex items-start gap-4">
+<div class="text-white flex items-center justify-center rounded-lg bg-red-500 shrink-0 size-12">
+<span class="material-symbols-outlined">
+              local_mall
+            </span>
+</div>
+<div class="flex flex-1 flex-col justify-center">
+<p class="text-gray-900 dark:text-white text-base font-medium leading-normal">Theft</p>
+<p class="text-red-500 text-sm font-normal leading-normal">Status: Open</p>
+<p class="text-gray-500 dark:text-gray-400 text-sm font-normal leading-normal">123 Main St, Anytown</p>
+</div>
+</div>
+<div class="shrink-0"><p class="text-gray-500 dark:text-gray-400 text-sm font-normal leading-normal">10:42 AM</p></div>
+</div>
+<div class="flex gap-4 bg-white dark:bg-gray-900 px-4 py-3 justify-between rounded-lg shadow">
+<div class="flex items-start gap-4">
+<div class="text-white flex items-center justify-center rounded-lg bg-blue-500 shrink-0 size-12">
+<span class="material-symbols-outlined">
+              security
+            </span>
+</div>
+<div class="flex flex-1 flex-col justify-center">
+<p class="text-gray-900 dark:text-white text-base font-medium leading-normal">Assault</p>
+<p class="text-blue-500 text-sm font-normal leading-normal">Status: In Progress</p>
+<p class="text-gray-500 dark:text-gray-400 text-sm font-normal leading-normal">456 Oak Ave, Anytown</p>
+</div>
+</div>
+<div class="shrink-0"><p class="text-gray-500 dark:text-gray-400 text-sm font-normal leading-normal">10:35 AM</p></div>
+</div>
+<div class="flex gap-4 bg-white dark:bg-gray-900 px-4 py-3 justify-between rounded-lg shadow">
+<div class="flex items-start gap-4">
+<div class="text-white flex items-center justify-center rounded-lg bg-green-500 shrink-0 size-12">
+<span class="material-symbols-outlined">
+              help
+            </span>
+</div>
+<div class="flex flex-1 flex-col justify-center">
+<p class="text-gray-900 dark:text-white text-base font-medium leading-normal">Suspicious Activity</p>
+<p class="text-green-500 text-sm font-normal leading-normal">Status: Resolved</p>
+<p class="text-gray-500 dark:text-gray-400 text-sm font-normal leading-normal">789 Pine Ln, Anytown</p>
+</div>
+</div>
+<div class="shrink-0"><p class="text-gray-500 dark:text-gray-400 text-sm font-normal leading-normal">10:21 AM</p></div>
+</div>
+<div class="flex gap-4 bg-white dark:bg-gray-900 px-4 py-3 justify-between rounded-lg shadow">
+<div class="flex items-start gap-4">
+<div class="text-white flex items-center justify-center rounded-lg bg-red-500 shrink-0 size-12">
+<span class="material-symbols-outlined">
+              directions_car
+            </span>
+</div>
+<div class="flex flex-1 flex-col justify-center">
+<p class="text-gray-900 dark:text-white text-base font-medium leading-normal">Vehicle Accident</p>
+<p class="text-red-500 text-sm font-normal leading-normal">Status: Open</p>
+<p class="text-gray-500 dark:text-gray-400 text-sm font-normal leading-normal">I-95 &amp; Route 1</p>
+</div>
+</div>
+<div class="shrink-0"><p class="text-gray-500 dark:text-gray-400 text-sm font-normal leading-normal">09:55 AM</p></div>
+</div>
+<div class="flex gap-4 bg-white dark:bg-gray-900 px-4 py-3 justify-between rounded-lg shadow">
+<div class="flex items-start gap-4">
+<div class="text-white flex items-center justify-center rounded-lg bg-blue-500 shrink-0 size-12">
+<span class="material-symbols-outlined">
+              local_fire_department
+            </span>
+</div>
+<div class="flex flex-1 flex-col justify-center">
+<p class="text-gray-900 dark:text-white text-base font-medium leading-normal">Fire</p>
+<p class="text-blue-500 text-sm font-normal leading-normal">Status: In Progress</p>
+<p class="text-gray-500 dark:text-gray-400 text-sm font-normal leading-normal">321 Birch Rd, Sometown</p>
+</div>
+</div>
+<div class="shrink-0"><p class="text-gray-500 dark:text-gray-400 text-sm font-normal leading-normal">09:48 AM</p></div>
+</div>
+<div class="flex gap-4 bg-white dark:bg-gray-900 px-4 py-3 justify-between rounded-lg shadow">
+<div class="flex items-start gap-4">
+<div class="text-white flex items-center justify-center rounded-lg bg-green-500 shrink-0 size-12">
+<span class="material-symbols-outlined">
+              person
+            </span>
+</div>
+<div class="flex flex-1 flex-col justify-center">
+<p class="text-gray-900 dark:text-white text-base font-medium leading-normal">Missing Person</p>
+<p class="text-green-500 text-sm font-normal leading-normal">Status: Resolved</p>
+<p class="text-gray-500 dark:text-gray-400 text-sm font-normal leading-normal">City Park</p>
+</div>
+</div>
+<div class="shrink-0"><p class="text-gray-500 dark:text-gray-400 text-sm font-normal leading-normal">Yesterday</p></div>
+</div>
+</div>
+</div>
+</body></html>

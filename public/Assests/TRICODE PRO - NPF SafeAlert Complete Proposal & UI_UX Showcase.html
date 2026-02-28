@@ -1,0 +1,1081 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1920, initial-scale=1.0">
+    <title>TRICODE PRO - NPF SafeAlert Proposal</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --npf-blue: #0033A1;
+            --npf-dark-blue: #001F60;
+            --tricode-green: #00E676; /* Bright green approximation */
+            --tricode-black: #111111;
+            --tricode-white: #FFFFFF;
+            --gray-100: #F3F4F6;
+            --gray-200: #E5E7EB;
+            --gray-600: #4B5563;
+            --gray-800: #1F2937;
+            --text-primary: #111827;
+            --spacing-unit: 8px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            width: 1920px;
+            background-color: #FFFFFF;
+            color: var(--text-primary);
+            overflow-x: hidden;
+            line-height: 1.5;
+        }
+
+        /* Utility Classes */
+        .container {
+            width: 1600px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section-padding {
+            padding: 100px 0;
+        }
+
+        .text-center { text-align: center; }
+        .text-right { text-align: right; }
+        .flex { display: flex; }
+        .flex-col { flex-direction: column; }
+        .items-center { align-items: center; }
+        .justify-between { justify-content: space-between; }
+        .justify-center { justify-content: center; }
+        .grid { display: grid; }
+        .gap-4 { gap: 1rem; }
+        .gap-8 { gap: 2rem; }
+        .gap-12 { gap: 3rem; }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 16px 32px;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background-color: var(--npf-blue);
+            color: white;
+            border: 2px solid var(--npf-blue);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--npf-blue);
+            border: 2px solid var(--npf-blue);
+        }
+
+        /* Header */
+        header {
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            height: 100px;
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-link {
+            color: var(--gray-600);
+            text-decoration: none;
+            font-weight: 500;
+            margin-left: 40px;
+            font-size: 18px;
+            transition: color 0.2s;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: var(--npf-blue);
+        }
+
+        .logo-img {
+            height: 60px;
+            object-fit: contain;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--npf-dark-blue) 0%, var(--npf-blue) 100%);
+            color: white;
+            padding: 180px 0 140px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-image: radial-gradient(circle at 20% 50%, rgba(255,255,255,0.05) 0%, transparent 50%),
+                              radial-gradient(circle at 80% 80%, rgba(255,255,255,0.05) 0%, transparent 50%);
+        }
+
+        .hero-title {
+            font-size: 72px;
+            margin-bottom: 24px;
+            letter-spacing: -1px;
+        }
+
+        .hero-subtitle {
+            font-size: 32px;
+            opacity: 0.9;
+            font-weight: 300;
+            margin-bottom: 48px;
+        }
+
+        .hero-meta {
+            display: flex;
+            gap: 60px;
+            border-top: 1px solid rgba(255,255,255,0.2);
+            padding-top: 40px;
+            margin-top: 60px;
+        }
+
+        .meta-item label {
+            display: block;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            opacity: 0.7;
+            margin-bottom: 8px;
+        }
+
+        .meta-item p {
+            font-size: 20px;
+            font-weight: 600;
+        }
+
+        /* Company Profile */
+        .profile-card {
+            background: white;
+            border-radius: 24px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.04);
+            overflow: hidden;
+            display: flex;
+            border: 1px solid var(--gray-200);
+        }
+
+        .profile-content {
+            padding: 80px;
+            flex: 1;
+        }
+
+        .profile-image-section {
+            flex: 1;
+            background: var(--gray-100);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .profile-image-section img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Modules Table */
+        .modules-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .modules-table th {
+            background: var(--gray-100);
+            padding: 24px;
+            text-align: left;
+            font-weight: 600;
+            color: var(--gray-800);
+            font-size: 18px;
+        }
+
+        .modules-table td {
+            padding: 24px;
+            border-top: 1px solid var(--gray-200);
+            vertical-align: top;
+            font-size: 16px;
+            color: var(--gray-600);
+        }
+
+        .modules-table tr:hover td {
+            background: #F9FAFB;
+        }
+
+        .module-name {
+            font-weight: 700;
+            color: var(--npf-blue);
+            font-size: 18px;
+        }
+
+        /* UI Showcase */
+        .ui-showcase-bg {
+            background: #F8FAFC;
+        }
+
+        .showcase-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .phone-card {
+            background: white;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid var(--gray-200);
+        }
+        
+        .phone-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .phone-frame {
+            background: var(--gray-100);
+            padding: 40px 20px 0; /* Top padding, no bottom so screen connects */
+            display: flex;
+            justify-content: center;
+            overflow: hidden;
+            height: 700px; /* Constrain height */
+            position: relative;
+        }
+
+        .phone-frame img {
+            width: 90%;
+            height: auto;
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
+            box-shadow: 0 -10px 30px rgba(0,0,0,0.1);
+            object-fit: cover;
+            object-position: top;
+        }
+
+        .phone-details {
+            padding: 32px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .feature-list {
+            list-style: none;
+            margin-top: 16px;
+        }
+
+        .feature-list li {
+            margin-bottom: 12px;
+            display: flex;
+            align-items: flex-start;
+            font-size: 16px;
+            color: var(--gray-600);
+        }
+
+        .feature-list i {
+            color: var(--tricode-green);
+            margin-right: 12px;
+            margin-top: 4px;
+        }
+
+        /* Tech Stack */
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+
+        .tech-card {
+            background: white;
+            padding: 32px;
+            border-radius: 16px;
+            text-align: center;
+            border: 1px solid var(--gray-200);
+        }
+
+        .tech-icon {
+            font-size: 48px;
+            color: var(--npf-blue);
+            margin-bottom: 16px;
+            display: block;
+        }
+
+        /* Pricing */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+            align-items: flex-start;
+        }
+
+        .pricing-card {
+            background: white;
+            border: 1px solid var(--gray-200);
+            border-radius: 24px;
+            padding: 48px 32px;
+            position: relative;
+        }
+
+        .pricing-card.recommended {
+            border: 2px solid var(--npf-blue);
+            box-shadow: 0 20px 40px rgba(0, 51, 161, 0.1);
+            transform: scale(1.05);
+            z-index: 10;
+        }
+
+        .badge {
+            background: var(--npf-blue);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            position: absolute;
+            top: -16px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .price-tag {
+            font-size: 48px;
+            font-weight: 800;
+            color: var(--text-primary);
+            margin: 24px 0 8px;
+        }
+        
+        .price-usd {
+            font-size: 20px;
+            color: var(--gray-600);
+            font-weight: 500;
+        }
+
+        .pricing-features {
+            margin: 32px 0;
+            list-style: none;
+        }
+
+        .pricing-features li {
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            color: var(--gray-600);
+        }
+
+        .pricing-features i {
+            color: var(--npf-blue);
+            margin-right: 12px;
+        }
+
+        /* User Journey */
+        .journey-container {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 20px;
+        }
+
+        .journey-col {
+            background: #F8FAFC;
+            padding: 24px;
+            border-radius: 12px;
+        }
+
+        .step-item {
+            background: white;
+            padding: 16px;
+            border-radius: 8px;
+            margin-bottom: 16px;
+            font-size: 14px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        
+        .step-item:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            bottom: -16px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 16px;
+            background: var(--gray-200);
+        }
+
+        /* Marketing */
+        .marketing-poster {
+            width: 100%;
+            height: 800px;
+            object-fit: cover;
+            border-radius: 24px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        /* Design Review */
+        .rating-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 32px;
+        }
+
+        .rating-card {
+            background: white;
+            padding: 24px;
+            border-radius: 12px;
+            border: 1px solid var(--gray-200);
+        }
+
+        .progress-bar {
+            height: 8px;
+            background: var(--gray-200);
+            border-radius: 4px;
+            margin-top: 12px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: var(--npf-blue);
+            border-radius: 4px;
+        }
+
+        /* Signature */
+        .signature-box {
+            border-top: 2px solid var(--text-primary);
+            padding-top: 16px;
+            margin-top: 60px;
+            width: 80%;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--tricode-black);
+            color: white;
+            padding: 80px 0 40px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 80px;
+            margin-bottom: 60px;
+        }
+        
+        .footer-link {
+            color: #9CA3AF;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 12px;
+            transition: color 0.2s;
+        }
+        
+        .footer-link:hover { color: white; }
+
+        .timeline-visual {
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+            margin-top: 60px;
+        }
+        
+        .timeline-visual::before {
+            content: '';
+            position: absolute;
+            top: 24px;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gray-200);
+            z-index: 1;
+        }
+        
+        .timeline-step {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            width: 200px;
+        }
+        
+        .step-circle {
+            width: 50px;
+            height: 50px;
+            background: var(--npf-blue);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            margin: 0 auto 16px;
+            border: 4px solid white;
+            box-shadow: 0 0 0 4px var(--gray-100);
+        }
+
+        /* Section Header */
+        .section-header {
+            margin-bottom: 60px;
+            text-align: center;
+        }
+
+        .section-tag {
+            color: var(--npf-blue);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-size: 14px;
+            margin-bottom: 16px;
+            display: block;
+        }
+
+        .section-title {
+            font-size: 48px;
+            color: var(--text-primary);
+            margin-bottom: 16px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="flex items-center justify-between">
+                <img src="https://a.lovart.ai/artifacts/user/o2ZbRV8i6K47Qem2.jpg" alt="TRICODE PRO Logo" class="logo-img">
+                <nav>
+                    <a href="#home" class="nav-link active">Home</a>
+                    <a href="#about" class="nav-link">About</a>
+                    <a href="#features" class="nav-link">Features</a>
+                    <a href="#showcase" class="nav-link">UI Showcase</a>
+                    <a href="#pricing" class="nav-link">Pricing</a>
+                    <a href="#contact" class="nav-link">Contact</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container text-center">
+            <h1 class="hero-title">NPF SafeAlert<br>Surveillance and Vigilance System</h1>
+            <p class="hero-subtitle">Bill & MVP Demonstration Scope Proposal</p>
+            
+            <div class="hero-meta justify-center">
+                <div class="meta-item">
+                    <label>Recipient</label>
+                    <p>Nigerian Police Force (NPF)</p>
+                </div>
+                <div class="meta-item">
+                    <label>Date</label>
+                    <p>October 2025</p>
+                </div>
+                <div class="meta-item">
+                    <label>Proposal Type</label>
+                    <p>MVP Development & Deployment</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Company Profile -->
+    <section class="section-padding" id="about">
+        <div class="container">
+            <div class="profile-card">
+                <div class="profile-content">
+                    <span class="section-tag">About Us</span>
+                    <h2 class="section-title" style="text-align: left; font-size: 42px;">TRICODE PRO LIMITED</h2>
+                    <p style="font-size: 18px; color: var(--gray-600); margin-bottom: 32px;">
+                        "Where Innovation Meets Opportunity"
+                    </p>
+                    
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 32px;">
+                        <div>
+                            <h4 style="margin-bottom: 8px;">Registration</h4>
+                            <p style="color: var(--gray-600);">RC: 7670471</p>
+                        </div>
+                        <div>
+                            <h4 style="margin-bottom: 8px;">Specialization</h4>
+                            <p style="color: var(--gray-600);">Enterprise Software, Mobile Security, GovTech Solutions</p>
+                        </div>
+                    </div>
+
+                    <div style="margin-top: 40px;">
+                        <a href="#contact" class="btn btn-primary">Contact Our Team</a>
+                    </div>
+                </div>
+                <div class="profile-image-section">
+                   <img src="https://a.lovart.ai/artifacts/user/2maMJSxBp47JldNO.png" alt="Company Banner" style="object-fit: cover;">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Proposal Overview -->
+    <section class="section-padding" style="background-color: #F9FAFB;">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Executive Summary</span>
+                <h2 class="section-title">Proposal Overview</h2>
+                <p style="max-width: 800px; margin: 0 auto; color: var(--gray-600); font-size: 18px;">
+                    This proposal outlines the development of the NPF SafeAlert Minimum Viable Product (MVP), designed to modernize emergency response and citizen vigilance through cutting-edge mobile technology.
+                </p>
+            </div>
+
+            <div class="grid" style="grid-template-columns: repeat(3, 1fr); gap: 32px;">
+                <div style="background: white; padding: 40px; border-radius: 16px; border: 1px solid var(--gray-200);">
+                    <div style="width: 50px; height: 50px; background: var(--npf-blue); border-radius: 8px; display: flex; align-items: center; justify-content: center; margin-bottom: 24px;">
+                        <i class="ri-shield-check-line" style="color: white; font-size: 24px;"></i>
+                    </div>
+                    <h3>Core Objectives</h3>
+                    <ul class="feature-list">
+                        <li><i class="ri-check-line"></i>Reduce emergency response time</li>
+                        <li><i class="ri-check-line"></i>Enhance citizen-police trust</li>
+                        <li><i class="ri-check-line"></i>Data-driven resource deployment</li>
+                    </ul>
+                </div>
+
+                <div style="background: white; padding: 40px; border-radius: 16px; border: 1px solid var(--gray-200);">
+                    <div style="width: 50px; height: 50px; background: var(--tricode-green); border-radius: 8px; display: flex; align-items: center; justify-content: center; margin-bottom: 24px;">
+                        <i class="ri-smartphone-line" style="color: var(--tricode-black); font-size: 24px;"></i>
+                    </div>
+                    <h3>MVP Scope</h3>
+                    <ul class="feature-list">
+                        <li><i class="ri-check-line"></i>Mobile App for Citizens (Android/iOS)</li>
+                        <li><i class="ri-check-line"></i>Admin Dashboard for Officers</li>
+                        <li><i class="ri-check-line"></i>Real-time Geolocation Services</li>
+                    </ul>
+                </div>
+
+                <div style="background: white; padding: 40px; border-radius: 16px; border: 1px solid var(--gray-200);">
+                    <div style="width: 50px; height: 50px; background: #000; border-radius: 8px; display: flex; align-items: center; justify-content: center; margin-bottom: 24px;">
+                        <i class="ri-lock-password-line" style="color: white; font-size: 24px;"></i>
+                    </div>
+                    <h3>Security Focus</h3>
+                    <ul class="feature-list">
+                        <li><i class="ri-check-line"></i>End-to-End Encryption</li>
+                        <li><i class="ri-check-line"></i>Anonymous Reporting Options</li>
+                        <li><i class="ri-check-line"></i>Strict Access Control (2FA)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Functional Modules -->
+    <section class="section-padding" id="features">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Deliverables</span>
+                <h2 class="section-title">Functional Modules</h2>
+            </div>
+
+            <table class="modules-table">
+                <thead>
+                    <tr>
+                        <th style="width: 25%;">Module Name</th>
+                        <th style="width: 45%;">Description</th>
+                        <th style="width: 30%;">Key Deliverables</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="module-name">User Authentication</td>
+                        <td>Secure sign-up and login for citizens, immigrants, and officers using email, phone number, and biometric verification.</td>
+                        <td>JWT Auth, 2FA Integration, Biometric API</td>
+                    </tr>
+                    <tr>
+                        <td class="module-name">Emergency SOS</td>
+                        <td>One-touch panic button that sends real-time location and user details to the nearest NPF command center.</td>
+                        <td>Real-time Socket.io, Geolocation API</td>
+                    </tr>
+                    <tr>
+                        <td class="module-name">Incident Reporting</td>
+                        <td>Structured forms for reporting crimes, accidents, or suspicious activities with media upload capabilities (photos/videos).</td>
+                        <td>Media Compression, Cloud Storage, Forms</td>
+                    </tr>
+                    <tr>
+                        <td class="module-name">Admin Dashboard</td>
+                        <td>Centralized control panel for NPF officers to view alerts, manage dispatch, and analyze crime data.</td>
+                        <td>React Admin Panel, Role-based Access</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- UI/UX Showcase -->
+    <section class="section-padding ui-showcase-bg" id="showcase">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Visual Experience</span>
+                <h2 class="section-title">Comprehensive UI/UX Showcase</h2>
+                <p style="color: var(--gray-600); max-width: 700px; margin: 0 auto;">
+                    A deep dive into the user interface designed for clarity, speed, and accessibility under high-stress situations.
+                </p>
+            </div>
+
+            <div class="showcase-grid">
+                <!-- Home Dashboard -->
+                <div class="phone-card">
+                    <div class="phone-frame">
+                        <img src="https://a.lovart.ai/artifacts/user/AFcqZK7sn24HEpXg.png" alt="Home Dashboard">
+                    </div>
+                    <div class="phone-details">
+                        <h3 style="font-size: 24px; margin-bottom: 16px;">Home Dashboard</h3>
+                        <p style="color: var(--gray-600); margin-bottom: 24px;">
+                            The central hub designed for immediate action. Features a prominent SOS trigger and quick access to reporting categories.
+                        </p>
+                        <h4 style="font-size: 16px; text-transform: uppercase; color: var(--gray-600);">Key Features</h4>
+                        <ul class="feature-list">
+                            <li><i class="ri-checkbox-circle-fill"></i> Instant "Hold to Alert" SOS</li>
+                            <li><i class="ri-checkbox-circle-fill"></i> Live Map Integration</li>
+                            <li><i class="ri-checkbox-circle-fill"></i> Quick Report Categories</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 2FA Security -->
+                <div class="phone-card">
+                    <div class="phone-frame">
+                        <img src="https://a.lovart.ai/artifacts/user/ggdgmcb5pY3xBFvJ.png" alt="2FA Screen">
+                    </div>
+                    <div class="phone-details">
+                        <h3 style="font-size: 24px; margin-bottom: 16px;">Secure Authentication</h3>
+                        <p style="color: var(--gray-600); margin-bottom: 24px;">
+                            Robust security layer ensuring that only verified personnel and citizens access sensitive data or reporting features.
+                        </p>
+                        <h4 style="font-size: 16px; text-transform: uppercase; color: var(--gray-600);">Key Features</h4>
+                        <ul class="feature-list">
+                            <li><i class="ri-checkbox-circle-fill"></i> Google Authenticator Support</li>
+                            <li><i class="ri-checkbox-circle-fill"></i> Backup Recovery Codes</li>
+                            <li><i class="ri-checkbox-circle-fill"></i> SMS Fallback Option</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Analytics Dashboard -->
+                <div class="phone-card">
+                    <div class="phone-frame">
+                        <img src="https://a.lovart.ai/artifacts/user/Ip4Qpw1TyTLJ81f1.png" alt="Analytics Dashboard" style="object-position: top; object-fit: cover;">
+                    </div>
+                    <div class="phone-details">
+                        <h3 style="font-size: 24px; margin-bottom: 16px;">PGIS Unit Analytics</h3>
+                        <p style="color: var(--gray-600); margin-bottom: 24px;">
+                            Data-driven insights for command centers to monitor unit performance, response times, and incident hotspots.
+                        </p>
+                        <h4 style="font-size: 16px; text-transform: uppercase; color: var(--gray-600);">Key Features</h4>
+                        <ul class="feature-list">
+                            <li><i class="ri-checkbox-circle-fill"></i> Response Time Tracking</li>
+                            <li><i class="ri-checkbox-circle-fill"></i> Visual Data Charts</li>
+                            <li><i class="ri-checkbox-circle-fill"></i> Top Performer Leaderboards</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tech Stack -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Under the Hood</span>
+                <h2 class="section-title">Technology Stack</h2>
+            </div>
+            
+            <div class="tech-grid">
+                <div class="tech-card">
+                    <i class="ri-reactjs-line tech-icon"></i>
+                    <h4>Frontend</h4>
+                    <p style="color: var(--gray-600); margin-top: 8px;">React Native & React.js</p>
+                </div>
+                <div class="tech-card">
+                    <i class="ri-server-line tech-icon"></i>
+                    <h4>Backend</h4>
+                    <p style="color: var(--gray-600); margin-top: 8px;">Node.js & Express</p>
+                </div>
+                <div class="tech-card">
+                    <i class="ri-database-2-line tech-icon"></i>
+                    <h4>Database</h4>
+                    <p style="color: var(--gray-600); margin-top: 8px;">MongoDB Atlas</p>
+                </div>
+                <div class="tech-card">
+                    <i class="ri-map-pin-line tech-icon"></i>
+                    <h4>Maps</h4>
+                    <p style="color: var(--gray-600); margin-top: 8px;">Google Maps API</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline -->
+    <section class="section-padding" style="background: #F9FAFB;">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Project Schedule</span>
+                <h2 class="section-title">Delivery Timeline (3 Weeks)</h2>
+            </div>
+
+            <div class="timeline-visual">
+                <div class="timeline-step">
+                    <div class="step-circle">W1</div>
+                    <h4>Setup & UI</h4>
+                    <p style="font-size: 14px; color: var(--gray-600); margin-top: 8px;">Environment, DB Design, Frontend Base</p>
+                </div>
+                <div class="timeline-step">
+                    <div class="step-circle">W2</div>
+                    <h4>Core Logic</h4>
+                    <p style="font-size: 14px; color: var(--gray-600); margin-top: 8px;">API Integration, SOS Module, Auth</p>
+                </div>
+                <div class="timeline-step">
+                    <div class="step-circle">W3</div>
+                    <h4>Testing & MVP</h4>
+                    <p style="font-size: 14px; color: var(--gray-600); margin-top: 8px;">QA, Security Audit, Final Deployment</p>
+                </div>
+                <div class="timeline-step">
+                    <div class="step-circle">W4</div>
+                    <h4>Handover</h4>
+                    <p style="font-size: 14px; color: var(--gray-600); margin-top: 8px;">Training, Documentation, Support</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing -->
+    <section class="section-padding" id="pricing">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Investment</span>
+                <h2 class="section-title">Pricing Options</h2>
+            </div>
+
+            <div class="pricing-grid">
+                <!-- Option A -->
+                <div class="pricing-card">
+                    <h3>Option A: Lite MVP</h3>
+                    <div class="price-tag">₦3.0M</div>
+                    <div class="price-usd">$1,950</div>
+                    <p style="margin-top: 16px; color: var(--gray-600);">Basic functional demo with core SOS features.</p>
+                    <ul class="pricing-features">
+                        <li><i class="ri-check-line"></i> Duration: 2 Weeks</li>
+                        <li><i class="ri-check-line"></i> Basic SOS Functionality</li>
+                        <li><i class="ri-check-line"></i> Simple Admin Panel</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-outline" style="width: 100%; text-align: center;">Select Lite</a>
+                </div>
+
+                <!-- Option B -->
+                <div class="pricing-card recommended">
+                    <span class="badge">RECOMMENDED</span>
+                    <h3>Option B: Standard</h3>
+                    <div class="price-tag">₦4.75M</div>
+                    <div class="price-usd">$3,080</div>
+                    <p style="margin-top: 16px; color: var(--gray-600);">Complete MVP for field testing and pilot launch.</p>
+                    <ul class="pricing-features">
+                        <li><i class="ri-check-double-line"></i> Duration: 3 Weeks</li>
+                        <li><i class="ri-check-double-line"></i> Full Incident Reporting</li>
+                        <li><i class="ri-check-double-line"></i> 2FA Security Suite</li>
+                        <li><i class="ri-check-double-line"></i> Real-time Map Dashboard</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-primary" style="width: 100%; text-align: center;">Select Standard</a>
+                </div>
+
+                <!-- Option C -->
+                <div class="pricing-card">
+                    <h3>Option C: Extended</h3>
+                    <div class="price-tag">₦6.0M</div>
+                    <div class="price-usd">$3,900</div>
+                    <p style="margin-top: 16px; color: var(--gray-600);">Advanced MVP with analytics and extended support.</p>
+                    <ul class="pricing-features">
+                        <li><i class="ri-check-line"></i> Duration: 4 Weeks</li>
+                        <li><i class="ri-check-line"></i> Analytics Dashboard</li>
+                        <li><i class="ri-check-line"></i> 1 Month Support</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-outline" style="width: 100%; text-align: center;">Select Extended</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- UI Review -->
+    <section class="section-padding" style="background: #F9FAFB;">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Full UI/UX Suite Review</h2>
+            </div>
+            <div class="rating-grid">
+                <div class="rating-card">
+                    <div class="flex justify-between items-center">
+                        <h4>Visual Consistency</h4>
+                        <span style="font-weight: 700; color: var(--npf-blue);">9.5/10</span>
+                    </div>
+                    <div class="progress-bar"><div class="progress-fill" style="width: 95%;"></div></div>
+                </div>
+                <div class="rating-card">
+                    <div class="flex justify-between items-center">
+                        <h4>Role-based Clarity</h4>
+                        <span style="font-weight: 700; color: var(--npf-blue);">10/10</span>
+                    </div>
+                    <div class="progress-bar"><div class="progress-fill" style="width: 100%;"></div></div>
+                </div>
+                <div class="rating-card">
+                    <div class="flex justify-between items-center">
+                        <h4>Trust & Transparency</h4>
+                        <span style="font-weight: 700; color: var(--npf-blue);">10/10</span>
+                    </div>
+                    <div class="progress-bar"><div class="progress-fill" style="width: 100%;"></div></div>
+                </div>
+                <div class="rating-card">
+                    <div class="flex justify-between items-center">
+                        <h4>Performance Readiness</h4>
+                        <span style="font-weight: 700; color: var(--npf-blue);">8.5/10</span>
+                    </div>
+                    <div class="progress-bar"><div class="progress-fill" style="width: 85%;"></div></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- User Journey -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">User Journey Flows</h2>
+            </div>
+            <div class="journey-container">
+                <div class="journey-col">
+                    <h4 style="margin-bottom: 20px; text-align: center;">Citizen</h4>
+                    <div class="step-item">Download & Register</div>
+                    <div class="step-item">Verify Identity (OTP)</div>
+                    <div class="step-item">Trigger SOS / Report</div>
+                    <div class="step-item">Receive Updates</div>
+                </div>
+                <div class="journey-col">
+                    <h4 style="margin-bottom: 20px; text-align: center;">Immigrant</h4>
+                    <div class="step-item">Passport Scan Signup</div>
+                    <div class="step-item">Location Check-in</div>
+                    <div class="step-item">Emergency Aid</div>
+                    <div class="step-item">Embassy Link</div>
+                </div>
+                <div class="journey-col">
+                    <h4 style="margin-bottom: 20px; text-align: center;">Officer</h4>
+                    <div class="step-item">Secure Login (2FA)</div>
+                    <div class="step-item">Receive Dispatch</div>
+                    <div class="step-item">Navigate to Scene</div>
+                    <div class="step-item">File Report</div>
+                </div>
+                <div class="journey-col">
+                    <h4 style="margin-bottom: 20px; text-align: center;">Admin</h4>
+                    <div class="step-item">Dashboard Overview</div>
+                    <div class="step-item">Assign Units</div>
+                    <div class="step-item">Monitor Status</div>
+                    <div class="step-item">Close Incidents</div>
+                </div>
+                <div class="journey-col">
+                    <h4 style="margin-bottom: 20px; text-align: center;">Super Admin</h4>
+                    <div class="step-item">System Config</div>
+                    <div class="step-item">User Management</div>
+                    <div class="step-item">Analytics View</div>
+                    <div class="step-item">Audit Logs</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Marketing -->
+    <section class="section-padding" style="background: var(--tricode-black);">
+        <div class="container text-center">
+            <h2 class="section-title" style="color: white; margin-bottom: 40px;">Brand Positioning</h2>
+            <img src="https://a.lovart.ai/artifacts/user/6cVddtBC4v4XLGnu.png" alt="Marketing Posters" class="marketing-poster">
+            <p style="color: rgba(255,255,255,0.7); margin-top: 24px; font-size: 18px;">"Connect Collaborate Create"</p>
+        </div>
+    </section>
+
+    <!-- Signatures -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="flex justify-between" style="margin-top: 40px;">
+                <div style="width: 40%;">
+                    <p style="margin-bottom: 60px; font-weight: 600;">Prepared By:</p>
+                    <div class="signature-box">
+                        <h4 style="font-size: 20px;">Luke Okagha</h4>
+                        <p style="color: var(--gray-600);">CEO, TRICODE PRO LIMITED</p>
+                    </div>
+                </div>
+                <div style="width: 40%;">
+                    <p style="margin-bottom: 60px; font-weight: 600;">Approved By:</p>
+                    <div class="signature-box">
+                        <h4 style="font-size: 20px;">Nigerian Police Force (NPF)</h4>
+                        <p style="color: var(--gray-600);">Authorized Signatory</p>
+                    </div>
+                </div>
+            </div>
+            <p style="margin-top: 40px; color: var(--gray-600); font-style: italic;">* Proposal valid for 14 days from date of issue.</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h3 style="font-size: 24px; margin-bottom: 16px;">TRICODE PRO LIMITED</h3>
+                    <p style="color: #9CA3AF; margin-bottom: 24px;">Where Innovation Meets Opportunity. Building the future of digital safety and enterprise solutions.</p>
+                    <div class="flex gap-4">
+                        <i class="ri-instagram-line" style="font-size: 24px; color: white;"></i>
+                        <i class="ri-twitter-x-line" style="font-size: 24px; color: white;"></i>
+                        <i class="ri-linkedin-box-fill" style="font-size: 24px; color: white;"></i>
+                    </div>
+                </div>
+                <div>
+                    <h4 style="margin-bottom: 24px; color: white;">Contact Us</h4>
+                    <a href="/cdn-cgi/l/email-protection#abc8c4c5dfcac8dfebdfd9c2c8c4cfce85dbd9c4" class="footer-link"><span class="__cf_email__" data-cfemail="294a46475d484a5d695d5b404a464d4c07595b46">[email&#160;protected]</span></a>
+                    <a href="tel:+2349060700888" class="footer-link">+234 906 0700 888</a>
+                    <p class="footer-link">Lagos, Nigeria</p>
+                </div>
+                <div>
+                    <h4 style="margin-bottom: 24px; color: white;">Bank Details</h4>
+                    <p class="footer-link" style="color: white; font-weight: 600;">United Bank for Africa (UBA)</p>
+                    <p class="footer-link">Account: 1022772885</p>
+                    <p class="footer-link">Name: TRICODE PRO LIMITED</p>
+                </div>
+            </div>
+            <div style="border-top: 1px solid #374151; padding-top: 32px; text-align: center; color: #6B7280;">
+                <p>&copy; 2025 TRICODE PRO LIMITED — All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script></body>
+</html>

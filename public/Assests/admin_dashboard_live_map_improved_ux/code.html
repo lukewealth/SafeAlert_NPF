@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>NPF SafeAlert</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#FAC638",
+                        "background-light": "#f8f8f5",
+                        "background-dark": "#231e0f",
+                    },
+                    fontFamily: {
+                        "display": ["Public Sans"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-gray-800 dark:text-gray-200">
+<div class="relative flex h-screen w-full flex-col overflow-hidden">
+<!-- Top App Bar -->
+<div class="flex items-center bg-background-light dark:bg-background-dark p-4 pb-2 justify-between z-20">
+<button class="flex size-12 shrink-0 items-center text-gray-800 dark:text-gray-200">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<h2 class="text-gray-900 dark:text-gray-100 text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center">NPF SafeAlert</h2>
+<div class="flex w-12 items-center justify-end">
+<button class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 bg-transparent text-gray-800 dark:text-gray-200 gap-2 text-base font-bold leading-normal tracking-[0.015em] min-w-0 p-0">
+<span class="material-symbols-outlined">search</span>
+</button>
+</div>
+</div>
+<!-- Main Content -->
+<div class="flex-1 relative">
+<!-- Map -->
+<div class="absolute inset-0">
+<div class="bg-cover bg-center flex h-full w-full flex-col justify-between" data-alt="A map of a city with various pins indicating locations" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCtEywUOlUBbYNzAQuys6I_663nh5J91DjaNOG12KnQ-jSIXVbAb0VaKBMe-rwF6f4KwcB-WEpe9Wh4JqmwCiFwlIQ5LN-OahqG_RdSrQQjnTdE1BrDoV4iGR7cpFti219-ReQQ4-acwEG5U8NsxF2xfJbjOrzaQL8Z4M2chWW3p-opb2qE3xoAz7fKDKLN5hKLx_nEgzmqG0Ou6DBccX-nJWK5uFZBq3V9ubHpr8Vuw7OnqXJftTTzpwoNEaZ_oUjgE5e1cFWS2L0C");'>
+<div class="p-4">
+<label class="flex flex-col min-w-40 h-12">
+<div class="flex w-full flex-1 items-stretch rounded-lg h-full shadow-lg">
+<div class="text-gray-500 dark:text-gray-400 flex border-none bg-background-light dark:bg-background-dark items-center justify-center pl-4 rounded-l-lg border-r-0">
+<span class="material-symbols-outlined">search</span>
+</div>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-r-lg text-gray-900 dark:text-gray-100 focus:outline-0 focus:ring-0 border-none bg-background-light dark:bg-background-dark focus:border-none h-full placeholder:text-gray-500 dark:placeholder:text-gray-400 px-4 pl-2 text-base font-normal leading-normal" placeholder="Search for incidents or officers" value=""/>
+</div>
+</label>
+</div>
+<div class="flex flex-col items-end gap-3 p-4">
+<div class="flex flex-col gap-0.5">
+<button class="flex size-10 items-center justify-center rounded-t-lg bg-background-light dark:bg-background-dark shadow-lg">
+<span class="material-symbols-outlined text-gray-800 dark:text-gray-200">add</span>
+</button>
+<button class="flex size-10 items-center justify-center rounded-b-lg bg-background-light dark:bg-background-dark shadow-lg">
+<span class="material-symbols-outlined text-gray-800 dark:text-gray-200">remove</span>
+</button>
+</div>
+<button class="flex size-10 items-center justify-center rounded-lg bg-background-light dark:bg-background-dark shadow-lg">
+<span class="material-symbols-outlined text-gray-800 dark:text-gray-200">my_location</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Floating Action Button -->
+<div class="absolute bottom-24 right-4 z-20">
+<button class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-14 w-14 bg-primary text-gray-900 shadow-lg">
+<span class="material-symbols-outlined">layers</span>
+</button>
+</div>
+<!-- Bottom Sheet -->
+<div class="absolute bottom-0 left-0 w-full z-20">
+<div class="flex flex-col items-stretch bg-background-light dark:bg-background-dark rounded-t-xl">
+<button class="flex h-5 w-full items-center justify-center pt-2">
+<div class="h-1 w-9 rounded-full bg-gray-300 dark:bg-gray-600"></div>
+</button>
+<div class="p-4 @container">
+<div class="flex w-full flex-col gap-4">
+<div class="flex gap-4 items-center">
+<div class="relative">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full min-h-16 w-16" data-alt="Photo of Officer John Doe" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuC8JjqMHJbNCKo1K7gVczT-Dkj76wYD-1HrUW7lNOXa_0ufAaq8Syufa_sqRUl0ctgWYQgEvk1X_j3odPgenilRxxVX_i_BEngnd-iv1syV2KYG6YQapNmKHcwJdKK9LmlmWYeBLu4Twm3DGKyEVr2rImRkEdWFGYX2_FMKKBoWMkhrmyA3nBF0BCIRrHWFz0RPUXQKFTbY3tppOxvvC7DDTYSTmCZpSCzvt3GJv76W7rKyMByLM2YWNxkxA4gAnq5mVlKFIZm6VfS-");'></div>
+<span class="absolute bottom-0 right-0 block h-4 w-4 rounded-full bg-green-500 border-2 border-background-light dark:border-background-dark"></span>
+</div>
+<div class="flex flex-col justify-center">
+<p class="text-gray-900 dark:text-gray-100 text-[18px] font-bold leading-tight tracking-[-0.015em]">John Doe</p>
+<p class="text-green-600 dark:text-green-400 text-sm font-normal leading-normal">Available</p>
+</div>
+</div>
+<div class="flex w-full gap-3">
+<button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 text-sm font-bold leading-normal tracking-[0.015em] flex-1">
+<span class="truncate">Call Officer</span>
+</button>
+<button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-gray-900 text-sm font-bold leading-normal tracking-[0.015em] flex-1">
+<span class="truncate">View Profile</span>
+</button>
+</div>
+</div>
+</div>
+<div class="h-5 bg-background-light dark:bg-background-dark"></div>
+</div>
+</div>
+</div>
+</div>
+</body></html>

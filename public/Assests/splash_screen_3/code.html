@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>NPF SafeAlert Registration</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#000080",
+                        "background-light": "#f5f5f8",
+                        "background-dark": "#0f0f23",
+                        "success": "#22c55e",
+                        "pending": "#ef4444",
+                    },
+                    fontFamily: {
+                        "display": ["Public Sans", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'fade-in': 'fadeIn 1s ease-in-out',
+                        'slide-up': 'slideUp 0.5s ease-out forwards',
+                        'pin-drop': 'pinDrop 0.6s ease-out forwards',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': {
+                                opacity: '0'
+                            },
+                            '100%': {
+                                opacity: '1'
+                            },
+                        },
+                        slideUp: {
+                            '0%': {
+                                transform: 'translateY(100%)'
+                            },
+                            '100%': {
+                                transform: 'translateY(0)'
+                            },
+                        },
+                        pinDrop: {
+                            '0%': {
+                                transform: 'translateY(-50px) scale(0.8)',
+                                opacity: '0'
+                            },
+                            '70%': {
+                                transform: 'translateY(0) scale(1.1)',
+                                opacity: '1'
+                            },
+                            '100%': {
+                                transform: 'translateY(0) scale(1)',
+                                opacity: '1'
+                            },
+                        }
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            min-height: max(884px, 100dvh);
+        }
+        select {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            background-position: right 1rem center;
+            background-repeat: no-repeat;
+            background-size: 1.5em 1.5em;
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+        }
+        select:focus {
+            --tw-ring-color: var(--primary);
+            border-color: var(--primary);
+        }
+        select.dark {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%239ca3af' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light font-display">
+<div class="relative flex min-h-screen w-full flex-col bg-background-light dark:bg-background-dark p-4 group/design-root overflow-hidden">
+<div class="flex-grow flex flex-col items-center justify-center">
+<div class="flex flex-col items-center mb-8">
+<div class="relative w-24 h-24 mb-4">
+<div class="absolute inset-0 bg-primary/20 rounded-full animate-pulse-slow"></div>
+<div class="relative w-full h-full bg-center bg-no-repeat bg-contain" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDGA-d_Pqb8p_cM-4YO5b5ZHgmndAhiVvYd0wf8rC6x_RYJDa6TCPP0nxIW87upEOZiie6Ittet8gEmXX8vpKsi4-MJdmZGxjzEQOXBtHDTg8hl-pmpXLw8HEq8dNfkBosKP7_llFf8e_NteFPwaYCd9LSTNCSbhWQUw_Qz8OKaI190YdgnCTQksh1YlvA-EAkW1iCSSY83EntiwZlNgb2UzGxf4kWxpvFwBPZnw4ohyei6HU_MM0VR7izd1BF8_Ei1V4re2LFk_W2Q");'></div>
+</div>
+<h1 class="text-2xl font-bold text-gray-900 dark:text-white">Create Account</h1>
+<p class="text-gray-500 dark:text-gray-400">Please fill in your details to register.</p>
+</div>
+<form class="w-full max-w-md space-y-4">
+<input class="w-full h-12 px-4 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg text-gray-900 dark:text-white" placeholder="Full Name" type="text"/>
+<input class="w-full h-12 px-4 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg text-gray-900 dark:text-white" placeholder="Phone Number" type="tel"/>
+<input class="w-full h-12 px-4 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg text-gray-900 dark:text-white" placeholder="Email Address" type="email"/>
+<div class="relative">
+<select class="w-full h-12 px-4 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg text-black dark:text-white focus:ring-primary focus:border-primary active:ring-primary active:border-primary">
+<option disabled="" selected="" value="">Identity Document Type</option>
+<option class="text-black" value="nin">NIN (Citizen)</option>
+<option class="text-black" value="passport">Immigrant Passport ID</option>
+</select>
+</div>
+<input class="w-full h-12 px-4 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg text-gray-900 dark:text-white" placeholder="Document Number" type="text"/>
+<input class="w-full h-12 px-4 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg text-gray-900 dark:text-white" placeholder="Home Address" type="text"/>
+</form>
+<div class="w-full max-w-md mt-6">
+<p class="text-gray-700 dark:text-gray-300 font-medium mb-2">Live Location Verification</p>
+<div class="relative w-full h-48 bg-gray-200 dark:bg-gray-700 rounded-lg overflow-hidden">
+<img alt="Map background" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDfY-YlL-hxMHPqNIbAYV1dEWijCAGsybnHpF7k_Mj87_HWx5XdE5TchNCeLIS8N71NnIRJddxu1tO5gt2SFj-YaD2jjw23zfSN1RAgEu9T2WjerUVaeW4EPl0zZMCQ7Ge-jbxahk6_3AP_80_s4S5xYueNbeYP2PKEyOU3wt6LZNyX14r0jJhs2ugZPlwPDkLzJdC0YdrsB36XdEJ0mEtnjwNS3NffRe10Xng1APIUm2LGIB2DprGsfegxHVFyt5IIb46FNhhTWkUU"/>
+<div class="absolute inset-0 flex items-center justify-center">
+<div class="animate-pin-drop">
+<span class="material-symbols-outlined text-red-500 text-5xl">location_on</span>
+</div>
+</div>
+<div class="absolute top-2 right-2 p-1 bg-white/80 dark:bg-black/80 rounded-full animate-fade-in" style="animation-delay: 1s;">
+<span class="material-symbols-outlined text-success">check_circle</span>
+</div>
+</div>
+</div>
+<div class="w-full max-w-md px-4 py-3 mt-8">
+<button class="flex min-w-[84px] w-full cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-5 bg-primary text-white text-base font-bold leading-normal tracking-[0.015em]">
+<span class="truncate">Register</span>
+</button>
+</div>
+</div>
+<div class="fixed inset-0 bg-black bg-opacity-50 flex items-end justify-center z-50" id="verification-modal">
+<div class="w-full max-w-md bg-white dark:bg-gray-800 rounded-t-xl p-6 text-center animate-slide-up">
+<div class="mb-4">
+<span class="material-symbols-outlined text-success text-6xl">verified</span>
+</div>
+<p class="text-lg font-medium text-gray-900 dark:text-white">Your profile is verified and secured by NPF SafeAlert.</p>
+</div>
+</div>
+</div>
+</body></html>

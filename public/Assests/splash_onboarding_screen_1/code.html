@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>NPF SafeAlert</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0553c7",
+                        "background-light": "#f5f7f8",
+                        "background-dark": "#0f1723",
+                    },
+                    fontFamily: {
+                        "display": ["Public Sans"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                    animation: {
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'fade-in': 'fadeIn 1s ease-in-out',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                          '0%': { opacity: '0' },
+                          '100%': { opacity: '1' },
+                        }
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        @keyframes pulse {
+            50% {
+                opacity: 0.5;
+            }
+        }
+        .animate-pulse-slow {
+            animation: pulse-slow 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+        .animate-fade-in {
+            animation: fade-in 1.5s ease-out;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-primary font-display">
+<div class="relative flex h-screen min-h-screen w-full flex-col items-center justify-center bg-primary group/design-root overflow-hidden animate-fade-in">
+<div class="absolute w-64 h-64 bg-primary rounded-full animate-pulse-slow opacity-30" style="background-color: #0052CC;"></div>
+<div class="relative flex flex-col items-center justify-center">
+<div class="flex w-full grow bg-primary @container py-3 justify-center">
+<div class="w-40 gap-1 overflow-hidden bg-primary @[480px]:gap-2 aspect-square flex">
+<div class="w-full bg-center bg-no-repeat bg-contain aspect-auto flex-1" data-alt="NPF SafeAlert Logo" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDrMiwL3hg8uc9iBXFVVl6NQFCDm7rM-kvcbNzmcqj9qGSi3dmYj2H-1I7UYuSWEeaXZE_eudIMXDhD0ucGUB5szqDMn6OcWDTDO7ajIGYorRBOcX-qVLHW2siEG3Whozhi1UTsh6iFnAtguUxh9OIauDm20ZZliy8BwxDx81l7BPC4axLIDKyZJIazW3DZrPdKhXrQuVq4PGdoQzRHFEm7_GVjUy6HbLgNTliUMRPyhvNKJyaSXZMVyfebu3HuilnSchglA58DpSbD");'></div>
+</div>
+</div>
+<h1 class="text-white tracking-light text-[24px] font-bold leading-tight px-4 text-center pb-3 pt-6">Your Safety, One Tap Away.</h1>
+</div>
+<div class="absolute bottom-10 w-full px-4">
+<div class="flex px-4 py-3 justify-center">
+<button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-5 flex-1 bg-white text-primary text-base font-bold leading-normal tracking-[0.015em]">
+<span class="truncate">Get Started</span>
+</button>
+</div>
+</div>
+</div>
+</body></html>

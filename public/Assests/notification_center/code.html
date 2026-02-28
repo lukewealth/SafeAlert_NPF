@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Notification Center</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#03037d",
+            "background-light": "#f5f5f8",
+            "background-dark": "#0f0f23",
+          },
+          fontFamily: {
+            "display": ["Inter", "sans-serif"]
+          },
+          borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+        },
+      },
+    }
+  </script>
+<style>
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display">
+<div class="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden">
+<div class="flex items-center bg-white dark:bg-background-dark p-4 pb-2 justify-between border-b border-gray-200 dark:border-gray-700">
+<div class="text-[#1C1C1E] dark:text-white flex size-12 shrink-0 items-center">
+<!-- Placeholder for back arrow if needed -->
+</div>
+<h2 class="text-[#1C1C1E] dark:text-white text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center">Notifications</h2>
+<div class="flex w-auto items-center justify-end">
+<p class="text-primary text-sm font-medium leading-normal cursor-pointer">Mark All As Read</p>
+</div>
+</div>
+<div class="flex-1 bg-white dark:bg-background-dark pt-4">
+<!-- Notification Item 1 - Unread -->
+<div class="flex gap-4 bg-white dark:bg-background-dark px-4 py-3 justify-between items-start">
+<div class="flex-shrink-0 pt-1">
+<div class="w-2 h-2 bg-primary rounded-full mt-2"></div>
+</div>
+<div class="flex items-start gap-4 flex-1">
+<div class="text-[#1C1C1E] dark:text-white flex items-center justify-center rounded-lg bg-background-light dark:bg-gray-800 shrink-0 size-12">
+<span class="material-symbols-outlined">security</span>
+</div>
+<div class="flex flex-1 flex-col justify-center">
+<div class="flex justify-between items-center">
+<p class="text-[#1C1C1E] dark:text-white text-base font-bold leading-normal">Important Security Update</p>
+<p class="text-[#6C6C70] dark:text-gray-400 text-sm font-normal leading-normal">1h ago</p>
+</div>
+<p class="text-[#6C6C70] dark:text-gray-400 text-sm font-normal leading-normal">NPF SafeAlert Team</p>
+<p class="text-[#1C1C1E] dark:text-white text-sm font-normal leading-normal mt-1">Please update to the latest version to protect your account.</p>
+<button class="mt-3 text-white bg-primary h-8 px-4 rounded-lg text-sm font-medium self-start">Learn More</button>
+</div>
+</div>
+</div>
+<div class="h-px bg-gray-200 dark:bg-gray-700 mx-4"></div>
+<!-- Notification Item 2 - Unread -->
+<div class="flex gap-4 bg-white dark:bg-background-dark px-4 py-3 justify-between items-start">
+<div class="flex-shrink-0 pt-1">
+<div class="w-2 h-2 bg-primary rounded-full mt-2"></div>
+</div>
+<div class="flex items-start gap-4 flex-1">
+<div class="text-[#1C1C1E] dark:text-white flex items-center justify-center rounded-lg bg-background-light dark:bg-gray-800 shrink-0 size-12">
+<span class="material-symbols-outlined">campaign</span>
+</div>
+<div class="flex flex-1 flex-col justify-center">
+<div class="flex justify-between items-center">
+<p class="text-[#1C1C1E] dark:text-white text-base font-bold leading-normal">New Feature Announcement</p>
+<p class="text-[#6C6C70] dark:text-gray-400 text-sm font-normal leading-normal">4h ago</p>
+</div>
+<p class="text-[#6C6C70] dark:text-gray-400 text-sm font-normal leading-normal">NPF SafeAlert Team</p>
+<p class="text-[#1C1C1E] dark:text-white text-sm font-normal leading-normal mt-1">You can now customize your alert radius for more relevant notifications.</p>
+<button class="mt-3 text-white bg-primary h-8 px-4 rounded-lg text-sm font-medium self-start">Update App</button>
+</div>
+</div>
+</div>
+<div class="h-px bg-gray-200 dark:bg-gray-700 mx-4"></div>
+<!-- Notification Item 3 - Read -->
+<div class="flex gap-4 bg-white dark:bg-background-dark px-4 py-3 justify-between items-start">
+<div class="flex-shrink-0 pt-1">
+<div class="w-2 h-2 bg-transparent rounded-full mt-2"></div>
+</div>
+<div class="flex items-start gap-4 flex-1">
+<div class="text-[#1C1C1E] dark:text-white flex items-center justify-center rounded-lg bg-background-light dark:bg-gray-800 shrink-0 size-12">
+<span class="material-symbols-outlined">settings</span>
+</div>
+<div class="flex flex-1 flex-col justify-center">
+<div class="flex justify-between items-center">
+<p class="text-[#1C1C1E] dark:text-white text-base font-medium leading-normal">System Maintenance Scheduled</p>
+<p class="text-[#6C6C70] dark:text-gray-400 text-sm font-normal leading-normal">Yesterday</p>
+</div>
+<p class="text-[#6C6C70] dark:text-gray-400 text-sm font-normal leading-normal">System</p>
+<p class="text-[#6C6C70] dark:text-gray-400 text-sm font-normal leading-normal mt-1">The app will be unavailable for 30 minutes on Friday at 10 PM.</p>
+</div>
+</div>
+</div>
+<div class="h-px bg-gray-200 dark:bg-gray-700 mx-4"></div>
+<!-- Empty State Example (commented out, can be used when list is empty) -->
+<!--
+      <div class="flex flex-col px-4 py-16">
+        <div class="flex flex-col items-center gap-6 text-center">
+          <div class="text-[#6C6C70] dark:text-gray-400">
+             <span class="material-symbols-outlined" style="font-size: 96px;">notifications_off</span>
+          </div>
+          <div class="flex flex-col items-center gap-2">
+            <p class="text-[#1C1C1E] dark:text-white text-lg font-bold leading-tight tracking-[-0.015em]">All clear!</p>
+            <p class="text-[#6C6C70] dark:text-gray-400 text-sm font-normal leading-normal">You have no new notifications.</p>
+          </div>
+        </div>
+      </div>
+      -->
+</div>
+</div>
+</body></html>

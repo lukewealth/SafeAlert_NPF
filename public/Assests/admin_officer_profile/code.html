@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Officer Profile</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              colors: {
+                "primary": "#000080",
+                "primary-green": "#008000",
+                "background-light": "#ffffff",
+                "background-dark": "#f5f5f8",
+                "text-primary": "#111827",
+                "text-secondary": "#6b7280",
+              },
+              fontFamily: {
+                "display": ["Inter", "sans-serif"]
+              },
+              borderRadius: {"DEFAULT": "0.5rem", "lg": "0.75rem", "xl": "1rem", "full": "9999px"},
+            },
+          },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings:
+            'FILL' 0,
+            'wght' 400,
+            'GRAD' 0,
+            'opsz' 24
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light font-display">
+<div class="relative flex h-auto min-h-screen w-full flex-col bg-background-light group/design-root overflow-x-hidden" style='font-family: Inter, "Noto Sans", sans-serif;'>
+<div class="flex items-center bg-white p-4 pb-2 justify-between border-b border-gray-200">
+<div class="text-text-primary flex size-12 shrink-0 items-center">
+<span class="material-symbols-outlined text-text-primary">arrow_back</span>
+</div>
+<h2 class="text-text-primary text-xl font-bold leading-tight tracking-[-0.015em] flex-1 text-center">Officer Profile</h2>
+<div class="flex w-12 items-center justify-end">
+<button class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 bg-transparent text-text-primary gap-2 text-base font-bold leading-normal tracking-[0.015em] min-w-0 p-0">
+<span class="material-symbols-outlined text-text-primary">more_vert</span>
+</button>
+</div>
+</div>
+<div class="flex flex-col p-6 @container items-center">
+<div class="flex flex-col gap-4 items-center w-full">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full min-h-32 w-32" data-alt="Officer John Doe's profile picture" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuA0UZEfBado3h5yq5YxAk4QjJP_5sJ7-hA25F5KhOJWxcxIU3G9M-0blUGnUARzGCldd8d8YvpDZWzsrwhJFNcZeOSPUPSHvBmkpTnjbipEnSdIatpAcig-dor-WSb2QtFYhee5gd6BRL-y4VoItuq6el354HSpDyQprnPVhzCRJGH7SQjeU6J8zBg2ZwMvGnw4lF658MlnugROG57-G6DUJGDrmfMgOu2j6QN5M0_M7-ffAJ1eGQPvI5fe8WU4qfub9qx33ZpBkFSA");'></div>
+<div class="flex flex-col justify-center items-center text-center">
+<p class="text-text-primary text-2xl font-bold leading-tight tracking-[-0.015em]">John Doe</p>
+<p class="text-text-secondary text-base font-normal leading-normal">Badge ID: 12345 | PGIS Unit</p>
+</div>
+<div class="flex items-center gap-2 rounded-full bg-primary-green/10 px-4 py-2">
+<div class="w-3 h-3 rounded-full bg-primary-green"></div>
+<p class="text-primary-green text-base font-bold leading-normal tracking-[0.015em]">On Duty</p>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4 p-4">
+<div class="flex flex-col gap-2 rounded-lg p-4 bg-gray-50 border border-gray-200">
+<p class="text-text-secondary text-sm font-medium leading-normal">Average Response Time</p>
+<p class="text-text-primary tracking-light text-3xl font-bold leading-tight">10 min</p>
+</div>
+<div class="flex flex-col gap-2 rounded-lg p-4 bg-gray-50 border border-gray-200">
+<p class="text-text-secondary text-sm font-medium leading-normal">Incidents Handled</p>
+<p class="text-text-primary tracking-light text-3xl font-bold leading-tight">52</p>
+</div>
+<div class="flex flex-col gap-2 rounded-lg p-4 bg-primary-green/5 border-primary-green/20 border">
+<p class="text-text-secondary text-sm font-medium leading-normal">Case Closure Rate</p>
+<p class="text-primary-green tracking-light text-3xl font-bold leading-tight">85%</p>
+</div>
+</div>
+<div class="flex flex-col gap-3 px-4 py-3">
+<p class="text-text-primary text-lg font-medium leading-normal">Recent Patrol Route</p>
+<div class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-xl object-cover border border-gray-200" data-alt="Map showing recent patrol route" data-location="Lagos" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCvyCawWEB1gP2rCS-PtkWq7tG8bMEf5_MsQSerIM1C8GV-mNOPhgVs-_d75p4BA9wU7I-8pebvISKv7N9fmP-9te3GKCGQX8DOqKZbU0CJOrH-rG3TCfZNESlIyCGpaYZ8Z6dZlNM-oFiy9vAZ8FUZOO9I8u0mxra77vgxh1mbVV9bPf_1EiTdu7YNJXihQMI0G_RxQ1mPkETVFo70ew8ph4Pbam-yVf3Szj3hqvsggCRdB7MUXXo5pdBGPNay6GKwBsvDglpP8taR");'></div>
+</div>
+<div class="flex flex-col p-4 gap-4 mt-4">
+<div class="flex justify-between items-center">
+<h3 class="text-text-primary text-xl font-bold leading-tight tracking-[-0.015em]">Incident History</h3>
+<button class="text-primary text-sm font-bold">View All</button>
+</div>
+<div class="flex flex-col gap-3">
+<div class="flex items-center justify-between p-4 bg-white rounded-lg border border-gray-200">
+<div class="flex flex-col">
+<p class="text-text-primary font-semibold">Incident #7890</p>
+<p class="text-text-secondary text-sm">Robbery | 24/05/2024</p>
+</div>
+<div class="px-3 py-1 rounded-full bg-primary-green/10 text-primary-green text-sm font-medium">Resolved</div>
+</div>
+<div class="flex items-center justify-between p-4 bg-white rounded-lg border border-gray-200">
+<div class="flex flex-col">
+<p class="text-text-primary font-semibold">Incident #7889</p>
+<p class="text-text-secondary text-sm">Public Disturbance | 23/05/2024</p>
+</div>
+<div class="px-3 py-1 rounded-full bg-yellow-500/10 text-yellow-600 text-sm font-medium">In Progress</div>
+</div>
+<div class="flex items-center justify-between p-4 bg-white rounded-lg border border-gray-200">
+<div class="flex flex-col">
+<p class="text-text-primary font-semibold">Incident #7888</p>
+<p class="text-text-secondary text-sm">Traffic Violation | 22/05/2024</p>
+</div>
+<div class="px-3 py-1 rounded-full bg-primary-green/10 text-primary-green text-sm font-medium">Resolved</div>
+</div>
+</div>
+</div>
+<div class="flex flex-col gap-3 px-4 py-6 mt-4 bg-gray-50 border-t border-gray-200">
+<button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-14 px-5 bg-primary-green text-white text-base font-bold leading-normal tracking-[0.015em] w-full">
+<span class="truncate">Assign New Incident</span>
+</button>
+<button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-14 px-5 bg-gray-200 text-text-primary text-base font-bold leading-normal tracking-[0.015em] w-full">
+<span class="truncate">Edit Officer Details</span>
+</button>
+<button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-14 px-5 bg-transparent text-red-600 text-base font-bold leading-normal tracking-[0.015em] w-full border-2 border-red-600/30">
+<span class="truncate">Deactivate Account</span>
+</button>
+</div>
+</div>
+
+</body></html>

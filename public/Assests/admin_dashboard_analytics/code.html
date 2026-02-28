@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>NPF SafeAlert - Analytics &amp; Leaderboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#002D62",
+                        "background-light": "#f8f7f6",
+                        "background-dark": "#221d10",
+                    },
+                    fontFamily: {
+                        "display": ["Public Sans"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display">
+<div class="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden">
+<div class="flex items-center bg-background-light dark:bg-background-dark p-4 pb-2 justify-between border-b border-gray-200 dark:border-gray-800">
+<button class="flex items-center justify-center size-10 rounded-full text-gray-700 dark:text-gray-300">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<h1 class="text-lg font-bold leading-tight tracking-[-0.015em] text-gray-900 dark:text-gray-100 flex-1 text-center">Analytics &amp; Leaderboard</h1>
+<button class="flex items-center justify-center size-10 rounded-full text-gray-700 dark:text-gray-300">
+<span class="material-symbols-outlined">share</span>
+</button>
+</div>
+<div class="flex px-4 py-3 bg-background-light dark:bg-background-dark">
+<div class="flex h-10 flex-1 items-center justify-center rounded-lg bg-gray-200 dark:bg-gray-800 p-1">
+<label class="flex cursor-pointer h-full grow items-center justify-center overflow-hidden rounded-md px-2 has-[:checked]:bg-primary has-[:checked]:text-white text-gray-500 dark:text-gray-400 text-sm font-medium leading-normal">
+<span class="truncate">Today</span>
+<input class="invisible w-0" name="date-range" type="radio" value="Today"/>
+</label>
+<label class="flex cursor-pointer h-full grow items-center justify-center overflow-hidden rounded-md px-2 has-[:checked]:bg-primary has-[:checked]:text-white text-gray-500 dark:text-gray-400 text-sm font-medium leading-normal">
+<span class="truncate">7 Days</span>
+<input checked="" class="invisible w-0" name="date-range" type="radio" value="7 Days"/>
+</label>
+<label class="flex cursor-pointer h-full grow items-center justify-center overflow-hidden rounded-md px-2 has-[:checked]:bg-primary has-[:checked]:text-white text-gray-500 dark:text-gray-400 text-sm font-medium leading-normal">
+<span class="truncate">Month</span>
+<input class="invisible w-0" name="date-range" type="radio" value="Month"/>
+</label>
+<label class="flex cursor-pointer h-full grow items-center justify-center overflow-hidden rounded-md px-2 has-[:checked]:bg-primary has-[:checked]:text-white text-gray-500 dark:text-gray-400 text-sm font-medium leading-normal">
+<span class="truncate">Custom</span>
+<input class="invisible w-0" name="date-range" type="radio" value="Custom"/>
+</label>
+</div>
+</div>
+<div class="flex flex-wrap gap-4 p-4">
+<div class="flex min-w-[158px] flex-1 flex-col gap-2 rounded-xl p-4 border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900">
+<p class="text-gray-600 dark:text-gray-400 text-sm font-medium leading-normal">Avg. Response Time</p>
+<p class="text-gray-900 dark:text-gray-100 tracking-light text-2xl font-bold leading-tight">5m 12s</p>
+<p class="text-red-600 dark:text-red-500 text-sm font-medium leading-normal">-5%</p>
+</div>
+<div class="flex min-w-[158px] flex-1 flex-col gap-2 rounded-xl p-4 border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900">
+<p class="text-gray-600 dark:text-gray-400 text-sm font-medium leading-normal">Total Alerts</p>
+<p class="text-gray-900 dark:text-gray-100 tracking-light text-2xl font-bold leading-tight">1,234</p>
+<p class="text-green-600 dark:text-green-500 text-sm font-medium leading-normal">+12%</p>
+</div>
+<div class="flex min-w-[158px] flex-1 flex-col gap-2 rounded-xl p-4 border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900">
+<p class="text-gray-600 dark:text-gray-400 text-sm font-medium leading-normal">Case Closure Rate</p>
+<p class="text-gray-900 dark:text-gray-100 tracking-light text-2xl font-bold leading-tight">82%</p>
+<p class="text-green-600 dark:text-green-500 text-sm font-medium leading-normal">+2%</p>
+</div>
+<div class="flex min-w-[158px] flex-1 flex-col gap-2 rounded-xl p-4 border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900">
+<p class="text-gray-600 dark:text-gray-400 text-sm font-medium leading-normal">Active Units</p>
+<p class="text-gray-900 dark:text-gray-100 tracking-light text-2xl font-bold leading-tight">24</p>
+<p class="text-red-600 dark:text-red-500 text-sm font-medium leading-normal">-8%</p>
+</div>
+</div>
+<h2 class="text-gray-900 dark:text-gray-100 text-xl font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">Operational Analytics</h2>
+<div class="flex flex-wrap gap-4 px-4 py-3">
+<div class="flex min-w-72 flex-1 flex-col gap-2 rounded-xl border border-gray-200 dark:border-gray-800 p-6 bg-white dark:bg-gray-900">
+<p class="text-gray-800 dark:text-gray-200 text-base font-medium leading-normal">Alerts by Type</p>
+<p class="text-gray-900 dark:text-gray-100 tracking-light text-3xl font-bold leading-tight truncate">1,234</p>
+<div class="flex gap-1">
+<p class="text-gray-500 dark:text-gray-400 text-sm font-normal leading-normal">Last 7 Days</p>
+<p class="text-green-600 dark:text-green-500 text-sm font-medium leading-normal">+12%</p>
+</div>
+<div class="grid min-h-[180px] grid-flow-col gap-6 grid-rows-[1fr_auto] items-end justify-items-center px-3 pt-4">
+<div class="bg-yellow-400/80 w-full rounded-t-sm" style="height: 60%;"></div>
+<p class="text-gray-500 dark:text-gray-400 text-xs font-bold leading-normal tracking-[0.015em]">Robbery</p>
+<div class="bg-orange-400/80 w-full rounded-t-sm" style="height: 90%;"></div>
+<p class="text-gray-500 dark:text-gray-400 text-xs font-bold leading-normal tracking-[0.015em]">Assault</p>
+<div class="bg-red-500/80 w-full rounded-t-sm" style="height: 40%;"></div>
+<p class="text-gray-500 dark:text-gray-400 text-xs font-bold leading-normal tracking-[0.015em]">Kidnapping</p>
+</div>
+</div>
+<div class="flex min-w-72 flex-1 flex-col gap-2 rounded-xl border border-gray-200 dark:border-gray-800 p-6 bg-white dark:bg-gray-900">
+<p class="text-gray-800 dark:text-gray-200 text-base font-medium leading-normal">Response Time Trend</p>
+<p class="text-gray-900 dark:text-gray-100 tracking-light text-3xl font-bold leading-tight truncate">5m 12s</p>
+<div class="flex gap-1">
+<p class="text-gray-500 dark:text-gray-400 text-sm font-normal leading-normal">Last 7 Days</p>
+<p class="text-red-600 dark:text-red-500 text-sm font-medium leading-normal">-5%</p>
+</div>
+<div class="flex min-h-[180px] flex-1 flex-col gap-8 py-4">
+<svg fill="none" height="148" preserveaspectratio="none" viewbox="-3 0 478 150" width="100%" xmlns="http://www.w3.org/2000/svg">
+<path d="M0 109C18.1538 109 18.1538 21 36.3077 21C54.4615 21 54.4615 41 72.6154 41C90.7692 41 90.7692 93 108.923 93C127.077 93 127.077 33 145.231 33C163.385 33 163.385 101 181.538 101C199.692 101 199.692 61 217.846 61C236 61 236 45 254.154 45C272.308 45 272.308 121 290.462 121C308.615 121 308.615 149 326.769 149C344.923 149 344.923 1 363.077 1C381.231 1 381.231 81 399.385 81C417.538 81 417.538 129 435.692 129C453.846 129 453.846 25 472 25V149H326.769H0V109Z" fill="url(#paint0_linear_chart)"></path>
+<path d="M0 109C18.1538 109 18.1538 21 36.3077 21C54.4615 21 54.4615 41 72.6154 41C90.7692 41 90.7692 93 108.923 93C127.077 93 127.077 33 145.231 33C163.385 33 163.385 101 181.538 101C199.692 101 199.692 61 217.846 61C236 61 236 45 254.154 45C272.308 45 272.308 121 290.462 121C308.615 121 308.615 149 326.769 149C344.923 149 344.923 1 363.077 1C381.231 1 381.231 81 399.385 81C417.538 81 417.538 129 435.692 129C453.846 129 453.846 25 472 25" stroke="#002D62" stroke-linecap="round" stroke-width="3"></path>
+<defs>
+<lineargradient gradientunits="userSpaceOnUse" id="paint0_linear_chart" x1="236" x2="236" y1="1" y2="149">
+<stop stop-color="#002D62" stop-opacity="0.3"></stop>
+<stop offset="1" stop-color="#002D62" stop-opacity="0"></stop>
+</lineargradient>
+</defs>
+</svg>
+<div class="flex justify-around">
+<p class="text-gray-500 dark:text-gray-400 text-xs font-bold leading-normal tracking-[0.015em]">Mon</p>
+<p class="text-gray-500 dark:text-gray-400 text-xs font-bold leading-normal tracking-[0.015em]">Tue</p>
+<p class="text-gray-500 dark:text-gray-400 text-xs font-bold leading-normal tracking-[0.015em]">Wed</p>
+<p class="text-gray-500 dark:text-gray-400 text-xs font-bold leading-normal tracking-[0.015em]">Thu</p>
+<p class="text-gray-500 dark:text-gray-400 text-xs font-bold leading-normal tracking-[0.015em]">Fri</p>
+<p class="text-gray-500 dark:text-gray-400 text-xs font-bold leading-normal tracking-[0.015em]">Sat</p>
+<p class="text-gray-500 dark:text-gray-400 text-xs font-bold leading-normal tracking-[0.015em]">Sun</p>
+</div>
+</div>
+</div>
+</div>
+<h2 class="text-gray-900 dark:text-gray-100 text-xl font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">Performance Leaderboard</h2>
+<div class="px-4 pb-4">
+<div class="overflow-x-auto rounded-xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900">
+<table class="min-w-full divide-y divide-gray-200 dark:divide-gray-800">
+<thead class="bg-gray-50 dark:bg-gray-800">
+<tr>
+<th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider" scope="col">Rank</th>
+<th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider" scope="col">Unit/Officer</th>
+<th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider" scope="col">Response Time</th>
+<th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider" scope="col">Cases Closed</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-gray-200 dark:divide-gray-800">
+<tr>
+<td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-gray-100">1</td>
+<td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700 dark:text-gray-300">Alpha Unit</td>
+<td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700 dark:text-gray-300">4m 15s</td>
+<td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700 dark:text-gray-300">212</td>
+</tr>
+<tr>
+<td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-gray-100">2</td>
+<td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700 dark:text-gray-300">Bravo Team</td>
+<td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700 dark:text-gray-300">4m 45s</td>
+<td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700 dark:text-gray-300">198</td>
+</tr>
+<tr>
+<td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-gray-100">3</td>
+<td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700 dark:text-gray-300">Ofc. J. Rodriguez</td>
+<td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700 dark:text-gray-300">5m 02s</td>
+<td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700 dark:text-gray-300">185</td>
+</tr>
+<tr>
+<td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-gray-100">4</td>
+<td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700 dark:text-gray-300">Charlie Squad</td>
+<td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700 dark:text-gray-300">5m 30s</td>
+<td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700 dark:text-gray-300">170</td>
+</tr>
+<tr>
+<td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-gray-100">5</td>
+<td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700 dark:text-gray-300">Ofc. A. Williams</td>
+<td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700 dark:text-gray-300">5m 55s</td>
+<td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700 dark:text-gray-300">162</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="h-5 bg-background-light dark:bg-background-dark"></div>
+</div>
+</body></html>

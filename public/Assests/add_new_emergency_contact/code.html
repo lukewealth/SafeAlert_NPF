@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Add Emergency Contact</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#007AFF",
+            "background-light": "#FFFFFF",
+            "background-dark": "#0f1923",
+            "text-color": "#333333",
+          },
+          fontFamily: {
+            "display": ["Inter", "sans-serif"]
+          },
+          borderRadius: {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+        },
+      },
+    }
+  </script>
+<style>
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display">
+<div class="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden">
+<header class="flex items-center bg-background-light dark:bg-background-dark p-4 pb-2 justify-between sticky top-0 z-10 border-b border-gray-200 dark:border-gray-700">
+<button class="text-text-color dark:text-white flex items-center justify-center size-10">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<h1 class="text-text-color dark:text-white text-lg font-bold flex-1 text-center">Add Emergency Contact</h1>
+<button class="text-primary text-base font-semibold">Cancel</button>
+</header>
+<main class="flex-1 p-4">
+<div class="flex flex-col gap-6">
+<label class="flex flex-col w-full">
+<p class="text-text-color dark:text-gray-300 text-sm font-medium pb-2">Contact Name</p>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-text-color dark:text-white focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-gray-300 dark:border-gray-600 bg-background-light dark:bg-background-dark h-14 placeholder:text-gray-400 dark:placeholder-gray-500 p-[15px] text-base font-normal leading-normal" placeholder="Enter contact name" value=""/>
+</label>
+<label class="flex flex-col w-full">
+<p class="text-text-color dark:text-gray-300 text-sm font-medium pb-2">Phone Number</p>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-text-color dark:text-white focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-gray-300 dark:border-gray-600 bg-background-light dark:bg-background-dark h-14 placeholder:text-gray-400 dark:placeholder-gray-500 p-[15px] text-base font-normal leading-normal" placeholder="Enter phone number" type="tel" value=""/>
+</label>
+<label class="flex flex-col w-full">
+<p class="text-text-color dark:text-gray-300 text-sm font-medium pb-2">Email (optional)</p>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-text-color dark:text-white focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-gray-300 dark:border-gray-600 bg-background-light dark:bg-background-dark h-14 placeholder:text-gray-400 dark:placeholder-gray-500 p-[15px] text-base font-normal leading-normal" placeholder="Enter email address" type="email" value=""/>
+</label>
+<label class="flex flex-col w-full">
+<p class="text-text-color dark:text-gray-300 text-sm font-medium pb-2">Relationship</p>
+<div class="relative">
+<select class="form-select appearance-none flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-text-color dark:text-white focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-gray-300 dark:border-gray-600 bg-background-light dark:bg-background-dark h-14 placeholder:text-gray-400 dark:placeholder-gray-500 p-[15px] text-base font-normal leading-normal">
+<option disabled="" selected="" value="">Select relationship</option>
+<option value="family">Family</option>
+<option value="friend">Friend</option>
+<option value="neighbor">Neighbor</option>
+</select>
+<div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-text-color dark:text-white">
+<span class="material-symbols-outlined">expand_more</span>
+</div>
+</div>
+</label>
+</div>
+</main>
+<footer class="p-4 sticky bottom-0 bg-background-light dark:bg-background-dark border-t border-gray-200 dark:border-gray-700">
+<button class="w-full bg-primary text-white font-semibold py-4 rounded-lg text-base">Save Contact</button>
+</footer>
+</div>
+</body></html>

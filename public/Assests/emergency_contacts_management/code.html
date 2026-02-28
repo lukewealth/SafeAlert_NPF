@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Emergency Contacts</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#00447C",
+            "background-light": "#FFFFFF",
+            "background-dark": "#121212",
+            "text-light": "#333333",
+            "text-dark": "#E0E0E0",
+            "border-light": "#CCCCCC",
+            "border-dark": "#444444"
+          },
+          fontFamily: {
+            "display": ["Public Sans", "sans-serif"]
+          },
+          borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+        },
+      },
+    }
+  </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display">
+<div class="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden">
+<div class="flex items-center bg-background-light dark:bg-background-dark p-4 pb-2 justify-between border-b border-border-light dark:border-border-dark sticky top-0 z-10">
+<div class="text-text-light dark:text-text-dark flex size-12 shrink-0 items-center">
+<span class="material-symbols-outlined text-2xl">arrow_back</span>
+</div>
+<h2 class="text-text-light dark:text-text-dark text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center">Emergency Contacts</h2>
+<div class="flex size-12 shrink-0"></div>
+</div>
+<div class="flex-grow p-4">
+<div class="flex items-center gap-4 bg-background-light dark:bg-background-dark px-4 min-h-[72px] py-2 justify-between border-b border-border-light dark:border-border-dark">
+<div class="flex items-center gap-4">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full h-14 w-14" data-alt="Profile picture of John Doe" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAzekZahKtwa5XTyC6FFBZY1SaUJrLRUQJbatcueFbkY-uSNhFoceR74mSzNt9yfRU3MQGb5kxAZBxpl1Aqz5iSU9LOMkYaHu4wa0kS1KKWmkJeMtAuFn-5n1FxUlkKLddZIQKjEcQghnZwLUNdgEd6flBW1mSmRDbmHx5IWLZZcTgIOFHvbzKLEulfdbssZHrnJmflNbT8f0q2-j4oycMWsMkRapl1-jvOQ4w3H5eRWhb_qkNpcuhN7HwcWtcxR8ECTflDrM5YaXcW");'></div>
+<div class="flex flex-col justify-center">
+<p class="text-text-light dark:text-text-dark text-base font-medium leading-normal line-clamp-1">John Doe</p>
+<p class="text-gray-500 dark:text-gray-400 text-sm font-normal leading-normal line-clamp-2">Father</p>
+</div>
+</div>
+<div class="flex gap-2">
+<div class="text-text-light dark:text-text-dark flex size-7 items-center justify-center">
+<span class="material-symbols-outlined text-2xl">edit</span>
+</div>
+<div class="text-red-500 dark:text-red-400 flex size-7 items-center justify-center">
+<span class="material-symbols-outlined text-2xl">delete</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-4 bg-background-light dark:bg-background-dark px-4 min-h-[72px] py-2 justify-between border-b border-border-light dark:border-border-dark">
+<div class="flex items-center gap-4">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full h-14 w-14" data-alt="Profile picture of Jane Smith" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBu5APDT_4xUVT0bRXZnsfY-gzPKuAM9ofx4Of0wi_MbYYRy1xogn_khxCW1Rn3_5wvPDkstGNl_FLxeArYk35VRekz6bwnXbYiMnZkUvpG-FExtoBtsMnIjwbPmMQq42pYxkD1csLXezUTxAedhb7AtVxEqoqxjd8z68mfYk6W41xk2yCqhNJERG5lZDQ3l_RrcubVbEuvE1oh8snF4M-Tkr3A9D_snouS9-n_79nxFbU-SG9iqnB_S1jeCcWrfa4TP8Seuu3eDV6H");'></div>
+<div class="flex flex-col justify-center">
+<p class="text-text-light dark:text-text-dark text-base font-medium leading-normal line-clamp-1">Jane Smith</p>
+<p class="text-gray-500 dark:text-gray-400 text-sm font-normal leading-normal line-clamp-2">Spouse</p>
+</div>
+</div>
+<div class="flex gap-2">
+<div class="text-text-light dark:text-text-dark flex size-7 items-center justify-center">
+<span class="material-symbols-outlined text-2xl">edit</span>
+</div>
+<div class="text-red-500 dark:text-red-400 flex size-7 items-center justify-center">
+<span class="material-symbols-outlined text-2xl">delete</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-4 bg-background-light dark:bg-background-dark px-4 min-h-[72px] py-2 justify-between border-b border-border-light dark:border-border-dark">
+<div class="flex items-center gap-4">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full h-14 w-14" data-alt="Profile picture of Emily Jones" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCH4OngY0vD5-9st-NyuKw5Ml08U2piW3h0aSYj-k_2WCdQ6BSp4yOeogTqstDHmTjzIhM5YDyNbsWW_9qNJBJoYX7L38CoCSTXBpXIDM4NsNkueW8WKsr3vGr-7NOmXYRg8zSMPIXnWGYyv8e8CHquc9ReoZuARYDMJAiA6vyMoyufN0h-XjTv4NH0gh1OzbtQH6fokAhxfw7CNilf5oLgiT1NAI2H8pENkHtgqh8-h7XN7d8KzapaVng-KTa8qdFt_bFeppSg2y9E");'></div>
+<div class="flex flex-col justify-center">
+<p class="text-text-light dark:text-text-dark text-base font-medium leading-normal line-clamp-1">Emily Jones</p>
+<p class="text-gray-500 dark:text-gray-400 text-sm font-normal leading-normal line-clamp-2">Daughter</p>
+</div>
+</div>
+<div class="flex gap-2">
+<div class="text-text-light dark:text-text-dark flex size-7 items-center justify-center">
+<span class="material-symbols-outlined text-2xl">edit</span>
+</div>
+<div class="text-red-500 dark:text-red-400 flex size-7 items-center justify-center">
+<span class="material-symbols-outlined text-2xl">delete</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Empty State -->
+<!-- 
+    <div class="flex-grow flex flex-col items-center justify-center p-4 text-center">
+        <span class="material-symbols-outlined text-6xl text-gray-400 dark:text-gray-500">group</span>
+        <h3 class="text-lg font-semibold text-text-light dark:text-text-dark mt-4">No Emergency Contacts</h3>
+        <p class="text-gray-500 dark:text-gray-400 mt-1">Add a contact to get started.</p>
+    </div>
+    -->
+<div class="fixed bottom-5 right-5">
+<button class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-14 w-14 bg-primary text-white shadow-lg">
+<span class="material-symbols-outlined text-3xl">add</span>
+</button>
+</div>
+</div>
+<!-- Confirmation Dialog -->
+<!--
+  <div class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+    <div class="bg-background-light dark:bg-background-dark p-6 rounded-lg shadow-xl w-11/12 max-w-sm">
+        <h3 class="text-lg font-bold text-text-light dark:text-text-dark">Remove Contact?</h3>
+        <p class="text-text-light dark:text-text-dark mt-2">Are you sure you want to remove John Doe from your emergency contacts?</p>
+        <div class="flex justify-end gap-4 mt-6">
+            <button class="px-4 py-2 rounded-md text-text-light dark:text-text-dark">Cancel</button>
+            <button class="px-4 py-2 rounded-md bg-primary text-white font-semibold">Remove</button>
+        </div>
+    </div>
+  </div>
+  -->
+</body></html>
