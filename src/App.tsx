@@ -40,7 +40,8 @@ import {
   Cpu,
   Scale,
   Globe,
-  Download
+  Download,
+  Smartphone
 } from 'lucide-react';
 
 // --- Reusable UI Elements ---
