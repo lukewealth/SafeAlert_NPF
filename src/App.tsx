@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback, useMemo } from 'react';
+import React, { useState, useEffect, useCallback, useMemo, useRef } from 'react';
 import { motion, AnimatePresence, useScroll, useTransform } from 'motion/react';
 import { 
   Shield, 
@@ -41,7 +41,10 @@ import {
   Scale,
   Globe,
   Download,
-  Smartphone
+  Smartphone,
+  ChevronDown,
+  Building2,
+  UserCheck
 } from 'lucide-react';
 
 // --- Reusable UI Elements ---
@@ -67,13 +70,135 @@ const ScrollIndicator = () => {
   );
 };
 
-const SectionDivider = ({ title }: { title: string }) => (
-  <div className="flex items-center gap-8 py-24">
+const SectionDivider = ({ title, id }: { title: string, id?: string }) => (
+  <div id={id} className="flex items-center gap-8 py-24 section-anchor">
     <div className="h-px flex-1 bg-gradient-to-r from-transparent to-slate-200"></div>
     <h3 className="text-[10px] font-black text-slate-400 uppercase tracking-[0.6em] whitespace-nowrap">{title}</h3>
     <div className="h-px flex-1 bg-gradient-to-l from-transparent to-slate-200"></div>
   </div>
 );
+
+const GlobalFooter = () => (
+  <footer className="w-full bg-slate-900 text-white p-12 lg:p-24 border-t border-white/5 relative z-10">
+    <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-16">
+      <div className="space-y-8">
+        <div className="flex items-center gap-4">
+          <img src="/Assests/tricode 2.PNG" alt="TRICODE" className="h-10 w-auto bg-white rounded-lg p-1" />
+          <span className="font-black tracking-tighter text-xl uppercase">SafeAlert</span>
+        </div>
+        <p className="text-slate-400 text-sm font-medium leading-relaxed max-w-xs">
+          National Surveillance & Vigilance Ecosystem. Built for the modern Nigeria Police Force.
+        </p>
+        <div className="flex gap-4">
+          {[Linkedin, Twitter, Globe2].map((Icon, i) => (
+            <button key={i} className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center hover:bg-blue-600 transition-all border border-white/5"><Icon size={18} /></button>
+          ))}
+        </div>
+      </div>
+      
+      <div className="space-y-8">
+        <h4 className="text-blue-500 font-black text-[10px] uppercase tracking-[0.4em]">Strategic Partnerships</h4>
+        <div className="space-y-6">
+          <div className="flex items-start gap-4 group">
+            <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center text-blue-400 group-hover:bg-blue-600 group-hover:text-white transition-all border border-white/5"><Building2 size={20} /></div>
+            <div>
+              <p className="font-black text-sm uppercase tracking-tight text-white/90">CRYTOFY DIGITAL SERVICES LTD</p>
+              <p className="text-slate-500 text-[9px] font-black uppercase tracking-widest mt-1">RC: 7019763 / Tech Partner</p>
+            </div>
+          </div>
+          <div className="flex items-start gap-4 group">
+            <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center text-blue-400 group-hover:bg-blue-600 group-hover:text-white transition-all border border-white/5"><Globe size={20} /></div>
+            <div>
+              <p className="font-black text-sm uppercase tracking-tight text-white/90">Global Geospatial Network</p>
+              <p className="text-slate-500 text-[9px] font-black uppercase tracking-widest mt-1">Intelligence Framework</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="space-y-8">
+        <h4 className="text-blue-500 font-black text-[10px] uppercase tracking-[0.4em]">NPF Senior Oversight</h4>
+        <div className="space-y-6">
+          <div className="flex items-start gap-4 group">
+            <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center text-blue-400 group-hover:bg-blue-600 group-hover:text-white transition-all border border-white/5"><UserCheck size={20} /></div>
+            <div>
+              <p className="font-black text-sm uppercase tracking-tight text-white/90">Director, PGIS Department</p>
+              <p className="text-slate-500 text-[9px] font-black uppercase tracking-widest mt-1">DIG/CP-level Command</p>
+            </div>
+          </div>
+          <div className="flex items-start gap-4 group">
+            <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center text-blue-400 group-hover:bg-blue-600 group-hover:text-white transition-all border border-white/5"><Shield size={20} /></div>
+            <div>
+              <p className="font-black text-sm uppercase tracking-tight text-white/90">Regional ICT Units</p>
+              <p className="text-slate-500 text-[9px] font-black uppercase tracking-widest mt-1">6 Geo-Political Zones</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div className="max-w-7xl mx-auto mt-20 pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-8">
+      <p className="text-slate-500 font-black uppercase tracking-[0.6em] text-[9px]">TRICODE PRO LTD &copy; 2026 / PROPOSAL V1.2</p>
+      <div className="flex gap-12">
+        <span className="text-slate-500 font-black uppercase tracking-[0.2em] text-[9px] cursor-pointer hover:text-white transition-colors">NDPA 2023 Compliance</span>
+        <span className="text-slate-500 font-black uppercase tracking-[0.2em] text-[9px] cursor-pointer hover:text-white transition-colors">GDPR Standards</span>
+      </div>
+    </div>
+  </footer>
+);
+
+const MicroScrollNav = () => {
+  const [sections, setSections] = useState<{id: string, label: string}[]>([]);
+  const [active, setActive] = useState(0);
+
+  useEffect(() => {
+    const anchors = Array.from(document.querySelectorAll('.section-anchor'));
+    setSections(anchors.map(el => ({ 
+      id: el.id, 
+      label: el.getAttribute('data-label') || el.id.replace(/-/g, ' ') 
+    })));
+
+    const handleScroll = () => {
+      const scrollPos = window.scrollY + 200;
+      anchors.forEach((el, i) => {
+        if (el instanceof HTMLElement && scrollPos >= el.offsetTop && scrollPos < el.offsetTop + el.offsetHeight + 500) {
+          setActive(i);
+        }
+      });
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  if (sections.length === 0) return null;
+
+  return (
+    <div className="fixed right-8 top-1/2 -translate-y-1/2 z-[100] hidden lg:flex flex-col gap-6">
+      {sections.map((section, i) => (
+        <button 
+          key={section.id}
+          onClick={() => document.getElementById(section.id)?.scrollIntoView({ behavior: 'smooth' })}
+          className="group flex items-center justify-end gap-4"
+        >
+          <span className={`text-[10px] font-black uppercase tracking-widest transition-all ${active === i ? 'text-blue-500 translate-x-0' : 'text-slate-400 opacity-0 translate-x-4 group-hover:opacity-100 group-hover:translate-x-0'}`}>
+            {section.label}
+          </span>
+          <div className={`w-8 h-8 rounded-xl flex items-center justify-center font-black text-[10px] transition-all border ${active === i ? 'bg-blue-600 border-blue-600 text-white shadow-lg shadow-blue-500/20 scale-110' : 'bg-white/10 border-white/10 text-slate-400 group-hover:bg-white/20 group-hover:text-white'}`}>
+            {i + 1}
+          </div>
+        </button>
+      ))}
+      <button 
+        onClick={() => window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' })}
+        className="group flex items-center justify-end gap-4 mt-4"
+      >
+        <div className="w-8 h-8 rounded-full bg-slate-900 border border-white/10 flex items-center justify-center text-white hover:bg-blue-600 transition-all">
+          <ChevronDown size={14} className="group-hover:translate-y-0.5 transition-transform" />
+        </div>
+      </button>
+    </div>
+  );
+};
 
 const MobileMockup = ({ src, children, label }: { src?: string, children?: React.ReactNode, label: string }) => (
   <div className="relative group mx-auto">
@@ -190,7 +315,7 @@ const Slide_Intro = () => (
     </div>
 
     <div className="p-8 lg:p-32 bg-white">
-      <SectionDivider title="Product Vision" />
+      <SectionDivider title="Product Vision" id="vision" />
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20">
         <div className="space-y-12">
           <h3 className="text-5xl font-black text-slate-900 tracking-tighter">Mission <span className="text-blue-600">Statement</span></h3>
@@ -221,6 +346,7 @@ const Slide_Intro = () => (
         </div>
       </div>
     </div>
+    <GlobalFooter />
   </div>
 );
 
@@ -262,7 +388,7 @@ const Slide_BusinessGoals = () => (
     </div>
 
     <div className="p-8 lg:p-32 bg-white">
-      <SectionDivider title="Analytics & AI Layer" />
+      <SectionDivider title="Analytics & AI Layer" id="ai-layer" />
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
         <div className="space-y-12">
           <div className="p-12 bg-slate-900 rounded-[3.5rem] text-white relative overflow-hidden shadow-2xl">
@@ -297,6 +423,7 @@ const Slide_BusinessGoals = () => (
         </div>
       </div>
     </div>
+    <GlobalFooter />
   </div>
 );
 
@@ -328,7 +455,7 @@ const Slide_UIGallery = () => {
       <div className="min-h-screen p-8 lg:p-32 flex flex-col">
         <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end mb-20 gap-10">
           <div>
-            <h2 className="text-5xl lg:text-[7rem] font-black text-slate-900 mb-6 tracking-tighter leading-none">UX Showcase</h2>
+            <h2 className="text-5xl lg:text-[7rem] font-black text-slate-900 mb-6 tracking-tighter leading-none">UX Journey</h2>
             <div className="h-2 w-32 bg-blue-600 rounded-full"></div>
           </div>
           <div className="flex gap-2 p-1.5 bg-slate-100 rounded-2xl border border-slate-200">
@@ -346,29 +473,30 @@ const Slide_UIGallery = () => {
 
         <div className="flex-1 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12">
           <AnimatePresence mode="wait">
-            {categories[activeTab as keyof typeof categories].map((screen, i) => (
-              <motion.div 
-                key={screen.url}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -20 }}
-                transition={{ delay: i * 0.05 }}
-                className="flex flex-col gap-6"
-              >
-                <MobileMockup src={screen.url} label={screen.t} />
-                <div className="text-center">
-                  <h4 className="font-black text-xl text-slate-900 mb-1">{screen.t}</h4>
-                  <p className="text-slate-500 font-medium text-xs">{screen.d}</p>
+            <motion.div 
+              key={activeTab}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="contents"
+            >
+              {categories[activeTab as keyof typeof categories].map((screen, i) => (
+                <div key={screen.url} className="flex flex-col gap-6">
+                  <MobileMockup src={screen.url} label={screen.t} />
+                  <div className="text-center">
+                    <h4 className="font-black text-xl text-slate-900 mb-1">{screen.t}</h4>
+                    <p className="text-slate-500 font-medium text-xs">{screen.d}</p>
+                  </div>
                 </div>
-              </motion.div>
-            ))}
+              ))}
+            </motion.div>
           </AnimatePresence>
         </div>
         <ScrollIndicator />
       </div>
 
       <div className="p-8 lg:p-32 bg-slate-50">
-        <SectionDivider title="Comprehensive Asset Map" />
+        <SectionDivider title="Comprehensive Asset Map" id="assets" />
         <div className="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-5 gap-4">
           {[
             "onboarding_verification", "sos_panic_control", "incident_reporting", "live_tracking", "command_analytics",
@@ -381,13 +509,14 @@ const Slide_UIGallery = () => {
           ))}
         </div>
       </div>
+      <GlobalFooter />
     </div>
   );
 };
 
 const Slide_Governance = () => (
   <div className="min-h-screen bg-white p-8 lg:p-32 flex flex-col justify-center">
-    <SectionDivider title="PGIS Department Oversight" />
+    <SectionDivider title="PGIS Department Oversight" id="pgis" />
     <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
       <div>
         <h2 className="text-5xl lg:text-[7rem] font-black text-slate-900 mb-8 tracking-tighter leading-none">Governance</h2>
@@ -439,12 +568,13 @@ const Slide_Governance = () => (
         </div>
       </div>
     </div>
+    <GlobalFooter />
   </div>
 );
 
 const Slide_TechStack = () => (
   <div className="min-h-screen bg-slate-50 p-8 lg:p-32 flex flex-col justify-center">
-    <SectionDivider title="Engineering Architecture" />
+    <SectionDivider title="Engineering Architecture" id="stack" />
     <div className="max-w-7xl mx-auto w-full">
       <div className="text-center mb-24">
         <h2 className="text-5xl lg:text-[7rem] font-black text-slate-900 mb-6 tracking-tighter leading-none">System Stack</h2>
@@ -475,13 +605,15 @@ const Slide_TechStack = () => (
         ))}
       </div>
     </div>
+    <GlobalFooter />
   </div>
 );
 
 const Slide_LiveIntelligence = () => (
   <div className="relative min-h-screen bg-slate-900 text-white flex flex-col lg:flex-row overflow-hidden">
     <div className="flex-1 p-8 lg:p-24 flex flex-col justify-center relative z-10">
-      <h4 className="text-blue-400 font-black text-xs uppercase tracking-[0.5em] mb-8">Spatial Awareness</h4>
+      <SectionDivider title="Spatial Awareness" id="spatial" />
+      <h4 className="text-blue-400 font-black text-xs uppercase tracking-[0.5em] mb-8">Data-Driven Policing</h4>
       <h2 className="text-5xl lg:text-[7rem] font-black mb-10 tracking-tighter leading-none">Live Intelligence</h2>
       <p className="text-xl lg:text-3xl text-slate-400 max-w-xl mb-16 font-medium leading-relaxed">
         Real-time strategic oversight of national security assets and incident density via PGIS.
@@ -526,7 +658,7 @@ const Slide_Engagement = () => (
   <div className="min-h-screen bg-slate-950 text-white p-8 lg:p-32 flex flex-col justify-center relative overflow-hidden">
     <div className="absolute bottom-0 right-0 w-[800px] h-[800px] bg-blue-600/10 rounded-full blur-[200px] translate-x-1/2 translate-y-1/2"></div>
     <div className="max-w-5xl mx-auto w-full text-center relative z-10">
-      <h4 className="text-blue-500 font-black text-xs uppercase tracking-[0.5em] mb-10">Next Steps</h4>
+      <h4 className="text-blue-500 font-black text-xs uppercase tracking-[0.5em] mb-10">Strategic Rollout</h4>
       <h2 className="text-6xl lg:text-[9rem] font-black mb-16 tracking-tighter leading-[0.85]">Let's Secure the <span className="text-blue-600">Future.</span></h2>
       <div className="flex flex-col lg:flex-row items-center justify-center gap-10">
         <a href="mailto:info@tricodepro.com" className="px-16 py-8 bg-blue-600 rounded-[2.5rem] font-black text-2xl tracking-tighter hover:bg-blue-700 hover:scale-105 transition-all shadow-2xl shadow-blue-600/30 flex items-center gap-6 group">
@@ -539,10 +671,17 @@ const Slide_Engagement = () => (
         >
           Download PRD <Download className="group-hover:translate-y-1 transition-transform" />
         </a>
-        <div className="flex gap-6">
-          {[Linkedin, Twitter, Globe2].map((Icon, i) => (
-            <button key={i} className="p-8 rounded-[2.5rem] bg-white/5 border border-white/10 hover:bg-white/10 transition-all"><Icon size={32} /></button>
-          ))}
+      </div>
+      <div className="mt-32 grid grid-cols-1 md:grid-cols-2 gap-20 text-left opacity-60">
+        <div className="space-y-4">
+          <h5 className="text-blue-500 font-black text-[10px] uppercase tracking-[0.4em]">Business Partnerships</h5>
+          <p className="text-xl font-bold">CRYTOFY DIGITAL SERVICES LTD</p>
+          <p className="text-sm font-medium">Official Digital Systems Integration & Support RC: 7019763</p>
+        </div>
+        <div className="space-y-4">
+          <h5 className="text-blue-500 font-black text-[10px] uppercase tracking-[0.4em]">Senior Officers Oversight</h5>
+          <p className="text-xl font-bold">Director, PGIS Department</p>
+          <p className="text-sm font-medium">National Geospatial Intelligence & Surveillance Strategy Division</p>
         </div>
       </div>
       <p className="mt-32 text-slate-500 font-black uppercase tracking-[0.6em] text-[10px]">TRICODE PRO LTD &copy; 2026</p>
@@ -606,8 +745,9 @@ export default function App() {
 
   return (
     <div className="w-full bg-slate-950 font-sans selection:bg-blue-500/30 text-slate-900">
+      <MicroScrollNav />
       {/* Progress Bar */}
-      <div className="fixed top-0 left-0 right-0 z-[60] h-1.5 flex gap-1.5 px-2 pt-2">
+      <div className="fixed top-0 left-0 right-0 z-[150] h-1.5 flex gap-1.5 px-2 pt-2">
         {slides.map((_, i) => (
           <div key={i} className="flex-1 h-full bg-white/10 rounded-full overflow-hidden">
             <motion.div initial={false} animate={{ width: i === currentSlide ? '100%' : i < currentSlide ? '100%' : '0%', backgroundColor: i === currentSlide ? '#2563eb' : i < currentSlide ? '#1e293b' : 'rgba(255, 255, 255, 0)' }} className="h-full transition-all duration-700 ease-out shadow-[0_0_15px_rgba(37,99,235,0.5)]" />
@@ -643,13 +783,13 @@ export default function App() {
         {/* Global Navigation Controls */}
         <div className="fixed bottom-12 left-1/2 -translate-x-1/2 z-[100] flex flex-col items-center gap-8 pointer-events-none">
           <motion.div initial={{ y: 20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} className="flex items-center gap-8 bg-slate-900/95 backdrop-blur-xl p-4 rounded-full border border-white/10 shadow-2xl pointer-events-auto">
-            <button onClick={() => navigate(-1)} disabled={currentSlide === 0} className={`p-6 rounded-full transition-all ${currentSlide === 0 ? 'text-white/10 cursor-not-allowed' : 'text-white hover:bg-white/10 cursor-pointer active:scale-90'}`}><ChevronLeft size={32} strokeWidth={3} /></button>
+            <button onClick={() => navigate(-1)} disabled={currentSlide === 0} className={`p-6 rounded-full transition-all opacity-20 hover:opacity-100 ${currentSlide === 0 ? 'text-white/10 cursor-not-allowed' : 'text-white hover:bg-white/10 cursor-pointer active:scale-90'}`}><ChevronLeft size={32} strokeWidth={3} /></button>
             <div className="flex items-center gap-4 px-4">
               {slides.map((_, i) => (
                 <button key={i} onClick={() => { setDirection(i > currentSlide ? 1 : -1); setCurrentSlide(i); window.scrollTo({ top: 0, behavior: 'instant' }); }} className={`group relative h-10 flex items-center justify-center transition-all ${i === currentSlide ? 'w-16' : 'w-3 hover:w-6'}`}><div className={`h-2 rounded-full transition-all duration-500 ${i === currentSlide ? 'w-full bg-blue-500 shadow-[0_0_20px_rgba(37,99,235,0.7)]' : 'w-full bg-white/20 group-hover:bg-white/40'}`} /></button>
               ))}
             </div>
-            <button onClick={() => navigate(1)} disabled={currentSlide === slides.length - 1} className={`p-6 rounded-full transition-all ${currentSlide === slides.length - 1 ? 'text-white/10 cursor-not-allowed' : 'text-white hover:bg-white/10 cursor-pointer active:scale-90'}`}><ChevronRight size={32} strokeWidth={3} /></button>
+            <button onClick={() => navigate(1)} disabled={currentSlide === slides.length - 1} className={`p-6 rounded-full transition-all opacity-20 hover:opacity-100 ${currentSlide === slides.length - 1 ? 'text-white/10 cursor-not-allowed' : 'text-white hover:bg-white/10 cursor-pointer active:scale-90'}`}><ChevronRight size={32} strokeWidth={3} /></button>
           </motion.div>
         </div>
       </main>
