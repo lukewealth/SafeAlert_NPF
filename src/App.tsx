@@ -71,7 +71,7 @@ const ScrollIndicator = () => {
 };
 
 const SectionDivider = ({ title, id }: { title: string, id?: string }) => (
-  <div id={id} className="flex items-center gap-8 py-24 section-anchor">
+  <div id={id} className="flex items-center gap-8 py-24 section-anchor" data-label={title}>
     <div className="h-px flex-1 bg-gradient-to-r from-transparent to-slate-200"></div>
     <h3 className="text-[10px] font-black text-slate-400 uppercase tracking-[0.6em] whitespace-nowrap">{title}</h3>
     <div className="h-px flex-1 bg-gradient-to-l from-transparent to-slate-200"></div>
@@ -97,7 +97,7 @@ const GlobalFooter = () => (
       </div>
       
       <div className="space-y-8">
-        <h4 className="text-blue-500 font-black text-[10px] uppercase tracking-[0.4em]">Strategic Partnerships</h4>
+        <h4 className="text-blue-500 font-black text-[10px] uppercase tracking-[0.4em]">Business Partnerships</h4>
         <div className="space-y-6">
           <div className="flex items-start gap-4 group">
             <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center text-blue-400 group-hover:bg-blue-600 group-hover:text-white transition-all border border-white/5"><Building2 size={20} /></div>
@@ -117,27 +117,27 @@ const GlobalFooter = () => (
       </div>
 
       <div className="space-y-8">
-        <h4 className="text-blue-500 font-black text-[10px] uppercase tracking-[0.4em]">NPF Senior Oversight</h4>
+        <h4 className="text-blue-500 font-black text-[10px] uppercase tracking-[0.4em]">Nigerian Senior Officers</h4>
         <div className="space-y-6">
           <div className="flex items-start gap-4 group">
             <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center text-blue-400 group-hover:bg-blue-600 group-hover:text-white transition-all border border-white/5"><UserCheck size={20} /></div>
             <div>
               <p className="font-black text-sm uppercase tracking-tight text-white/90">Director, PGIS Department</p>
-              <p className="text-slate-500 text-[9px] font-black uppercase tracking-widest mt-1">DIG/CP-level Command</p>
+              <p className="text-slate-500 text-[9px] font-black uppercase tracking-widest mt-1">DIG/CP-level Oversight</p>
             </div>
           </div>
           <div className="flex items-start gap-4 group">
             <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center text-blue-400 group-hover:bg-blue-600 group-hover:text-white transition-all border border-white/5"><Shield size={20} /></div>
             <div>
-              <p className="font-black text-sm uppercase tracking-tight text-white/90">Regional ICT Units</p>
-              <p className="text-slate-500 text-[9px] font-black uppercase tracking-widest mt-1">6 Geo-Political Zones</p>
+              <p className="font-black text-sm uppercase tracking-tight text-white/90">Authorized Deployment</p>
+              <p className="text-slate-500 text-[9px] font-black uppercase tracking-widest mt-1">National Command Strategy</p>
             </div>
           </div>
         </div>
       </div>
     </div>
     <div className="max-w-7xl mx-auto mt-20 pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-8">
-      <p className="text-slate-500 font-black uppercase tracking-[0.6em] text-[9px]">TRICODE PRO LTD &copy; 2026 / PROPOSAL V1.2</p>
+      <p className="text-slate-500 font-black uppercase tracking-[0.6em] text-[9px]">TRICODE PRO LTD &copy; 2026 / AUTHORIZED DEPLOYMENT STRATEGY</p>
       <div className="flex gap-12">
         <span className="text-slate-500 font-black uppercase tracking-[0.2em] text-[9px] cursor-pointer hover:text-white transition-colors">NDPA 2023 Compliance</span>
         <span className="text-slate-500 font-black uppercase tracking-[0.2em] text-[9px] cursor-pointer hover:text-white transition-colors">GDPR Standards</span>
@@ -158,9 +158,9 @@ const MicroScrollNav = () => {
     })));
 
     const handleScroll = () => {
-      const scrollPos = window.scrollY + 200;
+      const scrollPos = window.scrollY + 300;
       anchors.forEach((el, i) => {
-        if (el instanceof HTMLElement && scrollPos >= el.offsetTop && scrollPos < el.offsetTop + el.offsetHeight + 500) {
+        if (el instanceof HTMLElement && scrollPos >= el.offsetTop) {
           setActive(i);
         }
       });
@@ -353,9 +353,10 @@ const Slide_Intro = () => (
 const Slide_BusinessGoals = () => (
   <div className="relative">
     <div className="min-h-screen p-8 lg:p-32 flex flex-col justify-center bg-slate-50">
+      <SectionDivider title="Strategic KPIs" id="kpis" />
       <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end mb-24 gap-8">
         <div>
-          <h2 className="text-5xl lg:text-[7rem] font-black text-slate-900 mb-6 tracking-tighter leading-none">Strategic KPIs</h2>
+          <h2 className="text-5xl lg:text-[7rem] font-black text-slate-900 mb-6 tracking-tighter leading-none">Business Goals</h2>
           <div className="h-2 w-32 bg-blue-600 rounded-full"></div>
         </div>
         <div className="text-left lg:text-right">
@@ -453,9 +454,10 @@ const Slide_UIGallery = () => {
   return (
     <div className="relative bg-white">
       <div className="min-h-screen p-8 lg:p-32 flex flex-col">
+        <SectionDivider title="UX Journey" id="ux-journey" />
         <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end mb-20 gap-10">
           <div>
-            <h2 className="text-5xl lg:text-[7rem] font-black text-slate-900 mb-6 tracking-tighter leading-none">UX Journey</h2>
+            <h2 className="text-5xl lg:text-[7rem] font-black text-slate-900 mb-6 tracking-tighter leading-none">Showcase</h2>
             <div className="h-2 w-32 bg-blue-600 rounded-full"></div>
           </div>
           <div className="flex gap-2 p-1.5 bg-slate-100 rounded-2xl border border-slate-200">
@@ -515,55 +517,57 @@ const Slide_UIGallery = () => {
 };
 
 const Slide_Governance = () => (
-  <div className="min-h-screen bg-white p-8 lg:p-32 flex flex-col justify-center">
-    <SectionDivider title="PGIS Department Oversight" id="pgis" />
-    <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
-      <div>
-        <h2 className="text-5xl lg:text-[7rem] font-black text-slate-900 mb-8 tracking-tighter leading-none">Governance</h2>
-        <p className="text-xl lg:text-3xl text-slate-600 mb-12 font-medium leading-relaxed">
-          The SVS is supervised by the newly proposed <span className="text-blue-600 font-black">Police Geospatial Intelligence & Surveillance (PGIS)</span> Department.
-        </p>
-        
-        <div className="space-y-6 mb-12">
-          {[
-            "Data compliance: NDPA 2023 & Cybercrime Act.",
-            "Immutable audit records for operational transparency.",
-            "Automated sanctions linked to digital identities."
-          ].map((text, i) => (
-            <div key={i} className="flex items-center gap-4">
-              <CheckCircle2 className="text-blue-600 shrink-0" size={24} />
-              <span className="text-lg font-bold text-slate-700">{text}</span>
-            </div>
-          ))}
-        </div>
-
-        <div className="p-8 bg-red-50 rounded-[2.5rem] border border-red-100">
-          <div className="flex items-center gap-4 mb-6">
-            <Scale className="text-red-600" size={32} />
-            <h4 className="text-2xl font-black text-red-900 uppercase tracking-tighter">Disciplinary Policy</h4>
-          </div>
-          <div className="grid grid-cols-1 gap-4">
+  <div className="relative bg-white flex flex-col min-h-screen">
+    <div className="flex-1 p-8 lg:p-32 flex flex-col justify-center">
+      <SectionDivider title="PGIS Department Oversight" id="pgis" />
+      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
+        <div>
+          <h2 className="text-5xl lg:text-[7rem] font-black text-slate-900 mb-8 tracking-tighter leading-none">Governance</h2>
+          <p className="text-xl lg:text-3xl text-slate-600 mb-12 font-medium leading-relaxed">
+            The SVS is supervised by the newly proposed <span className="text-blue-600 font-black">Police Geospatial Intelligence & Surveillance (PGIS)</span> Department.
+          </p>
+          
+          <div className="space-y-6 mb-12">
             {[
-              { l: "1st False Alarm", v: "System Warning + Account Flagged" },
-              { l: "2nd False Alarm", v: "7-Day Temporary Suspension" },
-              { l: "3rd False Alarm", v: "21-Day Suspension + ₦5,000 Fine" },
-              { l: "Repeated Offense", v: "Permanent Ban + PGIS Database Report" }
-            ].map((p, i) => (
-              <div key={i} className="flex justify-between items-center p-4 bg-white/60 rounded-2xl border border-red-100">
-                <span className="text-xs font-black text-red-900 uppercase tracking-widest">{p.l}</span>
-                <span className="text-xs font-bold text-slate-600">{p.v}</span>
+              "Data compliance: NDPA 2023 & Cybercrime Act.",
+              "Immutable audit records for operational transparency.",
+              "Automated sanctions linked to digital identities."
+            ].map((text, i) => (
+              <div key={i} className="flex items-center gap-4">
+                <CheckCircle2 className="text-blue-600 shrink-0" size={24} />
+                <span className="text-lg font-bold text-slate-700">{text}</span>
               </div>
             ))}
           </div>
+
+          <div className="p-8 bg-red-50 rounded-[2.5rem] border border-red-100">
+            <div className="flex items-center gap-4 mb-6">
+              <Scale className="text-red-600" size={32} />
+              <h4 className="text-2xl font-black text-red-900 uppercase tracking-tighter">Disciplinary Policy</h4>
+            </div>
+            <div className="grid grid-cols-1 gap-4">
+              {[
+                { l: "1st False Alarm", v: "System Warning + Account Flagged" },
+                { l: "2nd False Alarm", v: "7-Day Temporary Suspension" },
+                { l: "3rd False Alarm", v: "21-Day Suspension + ₦5,000 Fine" },
+                { l: "Repeated Offense", v: "Permanent Ban + PGIS Database Report" }
+              ].map((p, i) => (
+                <div key={i} className="flex justify-between items-center p-4 bg-white/60 rounded-2xl border border-red-100">
+                  <span className="text-xs font-black text-red-900 uppercase tracking-widest">{p.l}</span>
+                  <span className="text-xs font-bold text-slate-600">{p.v}</span>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
-      </div>
-      <div className="flex flex-col items-center justify-center gap-12">
-        <MobileMockup src="/Assests/admin_login_with_2fa_improved_ux/screen.png" label="Secure Access" />
-        <div className="flex items-center gap-6 bg-slate-900 px-10 py-6 rounded-3xl text-white shadow-2xl">
-          <Fingerprint size={32} className="text-blue-500" />
-          <div className="flex flex-col">
-            <span className="text-xs font-black uppercase tracking-[0.4em] text-blue-400">Security Layer</span>
-            <span className="text-lg font-bold">Biometric Authentication</span>
+        <div className="flex flex-col items-center justify-center gap-12">
+          <MobileMockup src="/Assests/admin_login_with_2fa_improved_ux/screen.png" label="Secure Access" />
+          <div className="flex items-center gap-6 bg-slate-900 px-10 py-6 rounded-3xl text-white shadow-2xl">
+            <Fingerprint size={32} className="text-blue-500" />
+            <div className="flex flex-col">
+              <span className="text-xs font-black uppercase tracking-[0.4em] text-blue-400">Security Layer</span>
+              <span className="text-lg font-bold">Biometric Authentication</span>
+            </div>
           </div>
         </div>
       </div>
@@ -573,36 +577,38 @@ const Slide_Governance = () => (
 );
 
 const Slide_TechStack = () => (
-  <div className="min-h-screen bg-slate-50 p-8 lg:p-32 flex flex-col justify-center">
-    <SectionDivider title="Engineering Architecture" id="stack" />
-    <div className="max-w-7xl mx-auto w-full">
-      <div className="text-center mb-24">
-        <h2 className="text-5xl lg:text-[7rem] font-black text-slate-900 mb-6 tracking-tighter leading-none">System Stack</h2>
-        <p className="text-xl lg:text-3xl text-slate-500 font-medium max-w-3xl mx-auto">Scalable, secure, and production-ready infrastructure built for national deployment.</p>
-      </div>
-      
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-        {[
-          { t: "Frontend Layer", l: "Flutter & Next.js", i: <Smartphone />, d: "Cross-platform mobile and responsive command webapps." },
-          { t: "Backend Logic", l: "Node.js & Django", i: <Server />, d: "RESTful APIs with robust RBAC and geo-routing logic." },
-          { t: "Data Persistence", l: "PostgreSQL & Firebase", i: <Database />, d: "Relational incident logs and real-time state sync." },
-          { t: "Security Ops", l: "AES-256 & TLS 1.3", i: <Lock />, d: "End-to-end encrypted data streams and 2FA gateway." }
-        ].map((item, i) => (
-          <div key={i} className="p-12 bg-white rounded-[3.5rem] border border-slate-200 shadow-sm flex flex-col items-center text-center group hover:border-blue-500 transition-all">
-            <div className="w-20 h-20 bg-slate-50 rounded-3xl flex items-center justify-center mb-8 text-blue-600 group-hover:bg-blue-600 group-hover:text-white transition-all">
-              {React.cloneElement(item.i as React.ReactElement, { size: 36 })}
+  <div className="relative bg-slate-50 flex flex-col min-h-screen">
+    <div className="flex-1 p-8 lg:p-32 flex flex-col justify-center">
+      <SectionDivider title="Engineering Architecture" id="stack" />
+      <div className="max-w-7xl mx-auto w-full">
+        <div className="text-center mb-24">
+          <h2 className="text-5xl lg:text-[7rem] font-black text-slate-900 mb-6 tracking-tighter leading-none">System Stack</h2>
+          <p className="text-xl lg:text-3xl text-slate-500 font-medium max-w-3xl mx-auto">Scalable, secure, and production-ready infrastructure built for national deployment.</p>
+        </div>
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {[
+            { t: "Frontend Layer", l: "Flutter & Next.js", i: <Smartphone />, d: "Cross-platform mobile and responsive command webapps." },
+            { t: "Backend Logic", l: "Node.js & Django", i: <Server />, d: "RESTful APIs with robust RBAC and geo-routing logic." },
+            { t: "Data Persistence", l: "PostgreSQL & Firebase", i: <Database />, d: "Relational incident logs and real-time state sync." },
+            { t: "Security Ops", l: "AES-256 & TLS 1.3", i: <Lock />, d: "End-to-end encrypted data streams and 2FA gateway." }
+          ].map((item, i) => (
+            <div key={i} className="p-12 bg-white rounded-[3.5rem] border border-slate-200 shadow-sm flex flex-col items-center text-center group hover:border-blue-500 transition-all">
+              <div className="w-20 h-20 bg-slate-50 rounded-3xl flex items-center justify-center mb-8 text-blue-600 group-hover:bg-blue-600 group-hover:text-white transition-all">
+                {React.cloneElement(item.i as React.ReactElement, { size: 36 })}
+              </div>
+              <h3 className="text-xs font-black text-blue-600 uppercase tracking-widest mb-2">{item.t}</h3>
+              <h2 className="text-2xl font-black text-slate-900 mb-4">{item.l}</h2>
+              <p className="text-sm text-slate-500 font-medium leading-relaxed">{item.d}</p>
             </div>
-            <h3 className="text-xs font-black text-blue-600 uppercase tracking-widest mb-2">{item.t}</h3>
-            <h2 className="text-2xl font-black text-slate-900 mb-4">{item.l}</h2>
-            <p className="text-sm text-slate-500 font-medium leading-relaxed">{item.d}</p>
-          </div>
-        ))}
-      </div>
-      
-      <div className="mt-20 flex flex-wrap justify-center gap-6">
-        {["AWS EC2", "Cloudflare", "NIMC API", "Google Maps API", "Twilio SMS", "Firebase FCM"].map((tag, i) => (
-          <span key={i} className="px-8 py-3 bg-slate-200 rounded-full text-[10px] font-black uppercase tracking-widest text-slate-600">{tag}</span>
-        ))}
+          ))}
+        </div>
+        
+        <div className="mt-20 flex flex-wrap justify-center gap-6">
+          {["AWS EC2", "Cloudflare", "NIMC API", "Google Maps API", "Twilio SMS", "Firebase FCM"].map((tag, i) => (
+            <span key={i} className="px-8 py-3 bg-white border border-slate-200 rounded-full text-[10px] font-black uppercase tracking-widest text-slate-600 shadow-sm">{tag}</span>
+          ))}
+        </div>
       </div>
     </div>
     <GlobalFooter />
@@ -658,7 +664,8 @@ const Slide_Engagement = () => (
   <div className="min-h-screen bg-slate-950 text-white p-8 lg:p-32 flex flex-col justify-center relative overflow-hidden">
     <div className="absolute bottom-0 right-0 w-[800px] h-[800px] bg-blue-600/10 rounded-full blur-[200px] translate-x-1/2 translate-y-1/2"></div>
     <div className="max-w-5xl mx-auto w-full text-center relative z-10">
-      <h4 className="text-blue-500 font-black text-xs uppercase tracking-[0.5em] mb-10">Strategic Rollout</h4>
+      <SectionDivider title="Strategic Rollout" id="rollout" />
+      <h4 className="text-blue-500 font-black text-xs uppercase tracking-[0.5em] mb-10">Engagement</h4>
       <h2 className="text-6xl lg:text-[9rem] font-black mb-16 tracking-tighter leading-[0.85]">Let's Secure the <span className="text-blue-600">Future.</span></h2>
       <div className="flex flex-col lg:flex-row items-center justify-center gap-10">
         <a href="mailto:info@tricodepro.com" className="px-16 py-8 bg-blue-600 rounded-[2.5rem] font-black text-2xl tracking-tighter hover:bg-blue-700 hover:scale-105 transition-all shadow-2xl shadow-blue-600/30 flex items-center gap-6 group">
@@ -679,12 +686,12 @@ const Slide_Engagement = () => (
           <p className="text-sm font-medium">Official Digital Systems Integration & Support RC: 7019763</p>
         </div>
         <div className="space-y-4">
-          <h5 className="text-blue-500 font-black text-[10px] uppercase tracking-[0.4em]">Senior Officers Oversight</h5>
+          <h5 className="text-blue-500 font-black text-[10px] uppercase tracking-[0.4em]">Nigerian Senior Officers</h5>
           <p className="text-xl font-bold">Director, PGIS Department</p>
           <p className="text-sm font-medium">National Geospatial Intelligence & Surveillance Strategy Division</p>
         </div>
       </div>
-      <p className="mt-32 text-slate-500 font-black uppercase tracking-[0.6em] text-[10px]">TRICODE PRO LTD &copy; 2026</p>
+      <p className="mt-32 text-slate-500 font-black uppercase tracking-[0.6em] text-[10px]">TRICODE PRO LTD &copy; 2026 / AUTHORIZED DEPLOYMENT STRATEGY</p>
     </div>
   </div>
 );
